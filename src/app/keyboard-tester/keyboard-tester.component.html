@@ -1,0 +1,19 @@
+<a id="main-page-link" routerLink="/main-page">Zurück zur Startseite</a>
+<h1>Tastatur-Tester</h1>
+
+<div class="center">
+  <app-size #child (size)="updateSize($event)"/>
+  <app-layout #child (layout)="updateLayout($event)"/>
+  <input (keydown)="$event.preventDefault()" value="Hier klicken und tippen..."/>
+
+  <div class="separator"></div>
+  
+  <div class="keyboard-container">
+    <app-keyboard class="size_{{size.id}}" [keyboard]="keyboard" [size]="size"/>
+  </div>
+  <p class="center annotation">
+    Hinweis: Die Druck- und Fn-Taste können aus technischen Gründen nicht erkannt werden.
+  </p>
+  
+  <app-stopwatch (reset)="resetKeys()" [keyboard]="keyboard"/>
+</div>

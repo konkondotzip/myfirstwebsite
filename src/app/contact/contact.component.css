@@ -1,0 +1,8 @@
+.invalid {
+  background-color: red;
+}
+
+.error {
+  color: red;
+  text-align: center;
+}

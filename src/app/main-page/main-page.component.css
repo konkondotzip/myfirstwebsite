@@ -1,0 +1,30 @@
+.navigation {
+  table-layout: fixed;
+  width: var(--div-width);
+}
+
+.contact {
+  width: auto;
+}
+
+th {
+  text-align: center;
+  font-weight: bold;
+  padding: 10px;
+}
+
+th a {
+  display: block;
+  font-size: larger;
+  text-decoration: none;
+  color: var(--color-bg);
+}
+
+.invalid {
+  background-color: red;
+}
+
+.errorMsg {
+  color: red;
+  text-align: center;
+}

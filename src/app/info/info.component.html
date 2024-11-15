@@ -1,0 +1,221 @@
+<a id="main-page-link" routerLink="/main-page">Zurück zur Startseite</a>
+<a name="top"></a>
+<div class="center">
+  <header>
+    <h1>Tastaturen -<br>Wieso, weshalb, warum?</h1>
+  </header>
+  <p>Hast du dich jemals vor eine Tastatur gesetzt und nachgedacht, warum sie so aussieht, wie sie aussieht? Also, <i>wirklich</i> nachgedacht?</p>
+  <div class="separator"></div>
+  <app-keyboard class="example size_{{exampleDE.size.id}}" [keyboard]="exampleDE"/>
+  <div class="separator"></div>
+  <p>
+    Warum sind die Tasten so schief angeordnet? Warum ist die Enter-Taste so komisch geformt?
+    Wie sehen Tastaturen in anderen Sprachen aus? Und wie viele Tasten braucht man wirklich?
+  </p>
+  
+  <h2>Die schiefen Tasten</h2>
+  <p>
+    Tastaturen wurden ursprünglich für Schreibmaschinen erfunden. 
+    Schreibmaschinen hatten für jeden Buchstaben einen Hebel, der ausgelöst wird, wenn man auf die Taste drückt.
+    Deswegen musste jede Zeile versetzt zueinander angeordnet sein, damit die Hebel sich nicht überkreuzen.
+    Dieses versetzte Layout ist bis heute bestehen geblieben.
+  </p>
+  <div class="separator"></div>
+  <div class="center">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/f/fe/Continental-Schreibmaschine_mit_Tabulator_%282021-02-21_Sp_04%29%2C_re_%282%29.jpg"
+    width="50%"
+    title="Eine „Continental Standard“-Schreibmaschine aus dem Jahr 1938">
+  </div>
+  <p class="source center">
+    Von <a href="//commons.wikimedia.org/wiki/User:Spurzem" title="User:Spurzem">Lothar Spurzem</a> - Eigenes Werk, 
+    <a href="https://creativecommons.org/licenses/by-sa/2.0/de/deed.en" title="Creative Commons Attribution-Share Alike 2.0 de">CC BY-SA 2.0 de</a>, 
+    <a href="https://commons.wikimedia.org/w/index.php?curid=151459629">Link</a>
+  </p>
+
+  <p>
+    Aus demselben Grund ist auch die Enter-Taste bei vielen Tastaturen L-förmig: 
+    Wäre sie rechteckig, dann wäre eine Lücke zwischen ihr und der Taste oben links neben ihr.
+    Man kann dies bei einigen älteren Tastaturmodellen aus den 80ern deutlicher erkennen:
+  </p>
+  <div class="separator"></div>
+  <div class="center">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/IBM_model_F_3887360487_ca719998f0_o.jpg" 
+    width="50%" 
+    title="Britische IBM-XT-Tastatur. Die Enter-Taste ist rechteckig, dafür ist die Taste oben links daneben breiter, um die Lücke zu füllen.">
+  </div>
+  <p class="source center">
+    Von <a rel="nofollow" class="external free" href="https://www.flickr.com/people/moparx">moparx</a> - 
+    <a rel="nofollow" class="external free" href="https://www.flickr.com/photos/moparx/3887360487">https://www.flickr.com/photos/moparx/3887360487</a>, 
+    <a href="https://creativecommons.org/licenses/by-sa/2.0" title="Creative Commons Attribution-Share Alike 2.0">CC BY-SA 2.0</a>, 
+    <a href="https://commons.wikimedia.org/w/index.php?curid=30448504">Link</a>
+  </p>
+
+  <h2>Andere Länder, andere Sitten</h2>
+  <p>
+    In Amerika und einigen Teilen Asiens und Lateinamerikas ist die Enter-Taste horizontal rechteckig und die Taste darüber etwas breiter. 
+    Man nennt dieses Layout „ANSI-Layout“ (ANSI steht für das American National Standards Institute).
+    Das Layout mit der L-förmigen Enter-Taste nennt man „ISO-Layout“ (ISO steht für die International Standardization Organisation).
+  </p>
+  <div class="separator"></div>
+  <app-keyboard [keyboard]="exampleISO" [size]="exampleISO.size" class="example size_{{exampleISO.size.id}}"/>
+  <div class="separator"></div>
+  <app-keyboard [keyboard]="exampleANSI" [size]="exampleANSI.size" class="example size_{{exampleANSI.size.id}}"/>
+  <div class="separator"></div>
+  <p>
+    Wie man sieht, hat das ISO-Layout außerdem eine Taste mehr als ANSI und eine Alt Gr-Taste statt nur Alt.
+  </p>
+  <p>
+    Das ANSI-Layout wird auch fürs Chinesische, Arabische und teilweise fürs Russische verwendet, 
+    während das ISO-Layout hauptsächlich in Europa Verwendung findet.
+  </p>
+  <p>
+    In Japan ist es noch komplizierter: In der Japanischen Sprache gibt es drei Zeichensysteme. 
+    Das heißt, deren Tastaturen müssen gleich drei Schriften + die Lateinischen Buchstaben bedienen:
+  </p>
+  <div class="separator"></div>
+  <app-keyboard [keyboard]="exampleJIS" [size]="exampleJIS.size" class="example size_{{exampleJIS.size.id}}"/>
+  <div class="separator"></div>
+  <p>
+    Man nennt dieses Layout „JIS-Layout“ (JIS steht für Japanese Industry Standard).
+    Hiragana (ひらがな) und Katakana (カタカナ) sind Silbenschriften, das heißt, jedes Zeichen beschreibt eine Silbe: かな bzw. カナ bedeuten jeweils "ka-na."
+    Hiragana werden meist für einfache Satzbausteine wie Verbkonjugationen oder Adjektive verwendet.
+    Kanji (漢字) sind größtenteils aus dem Chinesischen entlehnt. Jedes Zeichen steht hier für ein ganzes Wort (oder einen Teil eines Wortes) 
+    und gibt damit keine Information über die Aussprache. 日本 wird „nihon“ oder „nippon“ ausgesprochen und bedeutet „Japan.“
+  </p>
+  <p>
+    Man <i>kann</i> zwar im Japanischen alles in Hiragana schreiben, aber das macht es wegen der vielen ähnlich klingenden Worte schwieriger zu lesen.
+    Es gibt insgesamt über 50.000 Kanji, wovon ca. 2100 heute häufig verwendet werden. Die alle auf eine Tastatur zu quetschen, wäre sehr umständlich,
+    jedoch hat das die Japaner zur Erfindung des Computers nicht davon abgehalten, es zu versuchen:
+  </p>
+  <div class="separator"></div>
+  <div class="center">
+    <img src="https://deskthority.net/download/file.php?id=53821&sid=4e34b3ac44a96331ab120cf0a0af99c0"
+    width="50%"
+    title="Eine ALPS CP10SJ550A-Kanjitastatur aus der Zeit, bevor es Software gab, die die Eingabe von Kanji erleichtert.">
+  </div>
+  <p class="source center">
+    Von <a href="https://deskthority.net/memberlist.php?mode=viewprofile&u=13249&sid=a55edbcfcffadf10b0c1b39763a40ea4">JP!</a> - Eigenes Werk, 
+    <a href="https://deskthority.net/viewtopic.php?t=21937">Link</a>
+  </p>
+  <p>
+    <b>542 Tasten! 3481 mögliche Zeichen! 12 kg schwer! Und das alles soll die Tastatur oben auch können?!</b>
+  </p>
+  <p>
+    Ja: Und zwar übernimmt das der sogenannte Inputmethodeneditor (IME), eine Art Autokorrektur. 
+    Man kann einfach in Hiragana oder lateinischen Buchstaben so schreiben, wie man es aussprechen würde, und die Software schlägt die „richtigen“ Zeichen vor.
+    Die Extra-Tasten neben dem Leerzeichen, bei Caps Lock und über Tab sind fürs Umschalten zwischen verschiedenen Eingabemodi.
+  </p>
+  <p>
+    Lange Rede, kurzer Sinn: Hier sind die Unterschiede zwischen den Tastatur-Layouts nochmal tabellarisch aufgeführt:
+  </p>
+  <table class="center">
+    <tr>
+      <th>Standard</th>
+      <th>Anz. Tasten*</th>
+      <th>Region</th>
+    </tr>
+    <tr>
+      <td>ISO</td>
+      <td>105</td>
+      <td>Europa, Russland, Kanada</td>
+    </tr>
+    <tr>
+      <td>ANSI</td>
+      <td>104</td>
+      <td>USA, Australien, Naher Osten, Russland, Lateinamerika, Südkorea, China</td>
+    </tr>
+    <tr>
+      <td>JIS</td>
+      <td>109</td>
+      <td>Japan</td>
+    </tr>
+  </table>
+  <p class="center">*Full Size</p>
+
+  <h2>Größe ist nicht alles</h2>
+  <p>
+    Wenn man auf der Suche nach einer neuen Tastatur ist, wird man manchmal damit konfrontiert, was für eine „Größe“ man denn haben möchte.
+    Was soll das heißen? Sind die Tasten dann etwa kleiner oder größer?
+  </p>
+  <p>
+    Tatsächlich aber ist damit gemeint, <i>wie viele</i> bzw. <i>welche</i> Tasten auf der Tastatur zu finden sind. Hier die gängigsten Größen:
+  </p>
+  <div class="separator"></div>
+  <div class="center">
+    <div class="keyboardContainer">
+      <app-keyboard [keyboard]="example100" [size]="example100.size" class="example same-key-size"/>
+      <div class="separator"></div>
+      <app-keyboard [keyboard]="example96" [size]="example96.size" class="example same-key-size"/>
+      <div class="separator"></div>
+      <app-keyboard [keyboard]="example80" [size]="example80.size" class="example same-key-size"/>
+      <div class="separator"></div>
+      <app-keyboard [keyboard]="example75" [size]="example75.size" class="example same-key-size"/>
+      <div class="separator"></div>
+      <app-keyboard [keyboard]="example65" [size]="example65.size" class="example same-key-size"/>
+      <div class="separator"></div>
+      <app-keyboard [keyboard]="example60" [size]="example60.size" class="example same-key-size"/>
+    </div>
+  </div>
+  <div class="separator"></div>
+  <p>
+    Von oben nach unten: 100 % (Full Size), 96 %, 80 % (Tenkeyless/TKL), 75 %, 65 %, 60 %. 
+    Auf die fehlenden Tasten kann man mit Fn zugreifen (hier nicht genauer dargestellt).
+  </p>
+  <p>
+    Kleinere Größen haben weniger Tasten und sparen dadurch Platz auf dem Schreibtisch. 
+    Kleinere Größen wie 60 % sind vor allem bei Gamern beliebt, da sie dem Schreibtisch mehr Platz für Mausbewegungen geben.
+  </p>
+  <p>
+    Hier nochmal als Tabelle:
+  </p>
+
+  <table class="center">
+    <tr>
+      <th>Größe</th>
+      <th>Anz. Tasten*</th>
+      <th>Anmerkungen</th>
+    </tr>
+    <tr>
+      <td>100 %</td>
+      <td>105</td>
+      <td>Auch bekannt als Full Size</td>
+    </tr>
+    <tr>
+      <td>96 %</td>
+      <td>101</td>
+      <td>Keine Lücken zwischen den Tasten</td>
+    </tr>
+    <tr>
+      <td>80 %</td>
+      <td>88</td>
+      <td>Kein Numpad. Auch bekannt als Tenkeyless (TKL)</td>
+    </tr>
+    <tr>
+      <td>75 %</td>
+      <td>85</td>
+      <td>Ähnlich wie 80%, nur ohne Lücken</td>
+    </tr>
+    <tr>
+      <td>65 %</td>
+      <td>69</td>
+      <td>Ähnlich wie 75%, nur ohne F-Reihe (F1 bis F12)</td>
+    </tr>
+    <tr>
+      <td>60 %</td>
+      <td>62</td>
+      <td>Nur der innerste Teil einer 100 %-Tastatur</td>
+    </tr>
+  </table>
+  <p class="center annotation">*bei ISO-Layout</p>
+  <p>
+    Man sieht, der Prozentsatz spiegelt nicht ganz die tatsächliche Anzahl der Tasten wider. Sie sind nur zum einfachen Vergleich.
+  </p>
+
+  <div class="bottom-padding"></div>
+
+  <footer>
+    Geschrieben von konkon.zip
+  </footer>
+</div>
+
+<a id="back-to-top" href="info#top">Zurück nach oben</a>

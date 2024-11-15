@@ -1,0 +1,10 @@
+.keyboard {
+	--gap-size: 0.3vw;
+	height: auto;
+	display: grid;
+	justify-content: center;
+	padding: 10px;
+	background-color: var(--color-table);
+	color: var(--color-fg);
+	gap: var(--gap-size);
+}

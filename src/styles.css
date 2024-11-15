@@ -1,3 +1,179 @@
 html {
-  background-color: orange;
+  background-color: var(--color-bg);
+  font-family: 'Fira Code', 'JetBrains Mono', 'Consolas', 'Courier New', monospace;
+  color: var(--color-fg);
+  --div-width: clamp(500px, 70%, 1000px);
+  --font-size: 12pt;
+  font-size: var(--font-size);
+  --color-bg: papayawhip;
+  --color-table: chocolate;
+  --color-fg: #310;
+  --color-link: blue;
+  --color-hover: aqua;
+  --color-gradient: linear-gradient(white, var(--color-bg));
+}
+
+.dark-theme {
+  --color-bg: #410 !important;
+  --color-table: chocolate !important;
+  --color-fg: papayawhip !important;
+  --color-link: aqua !important;
+  --color-hover: blue !important;
+  --color-gradient: linear-gradient(var(--color-bg), black) !important;
+}
+
+@font-face {
+  font-family: 'Fira Code';
+  src: url('./app/assets/font/FiraCode.ttf') format('truetype');
+}
+
+select, button, input, textarea {
+  box-sizing: border-box;
+  font-family: inherit;
+  font-size: inherit;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 1%;
+  width: 25%;
+  margin: 0px 4.5px;
+  color: var(--color-fg);
+  background-color: var(--color-bg);
+  border: solid var(--color-table) 2px;
+}
+
+.submit-button {
+  font-size: small;
+  width: fit-content;
+}
+
+textarea {
+  width: 50%;
+  height: 100px;
+}
+
+button {
+  cursor: pointer;
+  border-radius: 10px;
+  color: var(--color-bg);
+  background-color: var(--color-fg);
+}
+
+footer {
+  text-align: right;
+}
+
+.bottom-padding {
+  padding: 100px;
+}
+
+.separator {
+  padding: 1ch;
+}
+
+.center, table.center {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#main-page-link {
+  background-color: var(--color-table);
+  color: var(--color-fg);
+  position: fixed;
+  padding: 10px;
+  top: 0;
+  right: 0;
+  z-index: 99;
+}
+
+#back-to-top {
+  background-color: var(--color-table);
+  color: var(--color-fg);
+  position: fixed;
+  padding: 10px;
+  bottom: 34px;
+  right: 0;
+}
+
+#contact {
+  background-color: var(--color-table);
+  color: var(--color-fg);
+  position: fixed;
+  padding: 10px;
+  top: 0;
+  left: 50px;
+}
+
+#theme-toggle {
+  background-color: var(--color-table);
+  color: var(--color-fg);
+  position: fixed;
+  padding: 10px;
+  height: 41px;
+  margin: 0;
+  border-radius: 0;
+  border: 0;
+  top: 0;
+  left: 0;
+  width: auto;
+  cursor: pointer;
+}
+
+table {
+  width: var(--div-width);
+  background-color: var(--color-table);
+  padding: 5px;
+  border-spacing: 5px;
+}
+
+td {
+  background-color: var(--color-bg);
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  background-color: var(--color-fg);
+  color: var(--color-bg);
+}
+
+a {
+  color: var(--color-link);
+}
+
+p {
+  width: var(--div-width);
+  margin: auto;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: justify;
+}
+
+.source, .annotation {
+  font-size: smaller;
+  color: var(--color-table);
+}
+.source a, .annotation {
+  color: var(--color-table);
+}
+
+h1, h2, h3 {
+  text-align: center;
+}
+
+img {
+  width: var(--div-width);
+}
+
+.invalid {
+  background-color: red;
+}
+
+.error {
+  color: red;
+  text-align: center;
+}
+
+.hidden {
+  display: none;
 }

@@ -1,0 +1,173 @@
+/* Tastaturen sind als grid dargestellt, da die Zeilen versetzt sind */
+.keyboard {
+	--gap-size: inherit;
+	height: auto;
+	margin: auto;
+	display: grid;
+	justify-content: center;
+	padding: 10px;
+	background-color: var(--color-table);
+	color: var(--color-fg);
+	gap: var(--gap-size);
+}
+
+/* Größen der Tastatur */
+/* Größe einzelner Tasten ist in Vierteln angegeben */
+/* Bsp.: 60 % ist 60/4=15 Tasten breit; 20/4=5 Tasten hoch */
+.size_60 {
+	grid-template-columns: repeat(60, 1fr);
+	grid-template-rows: repeat(20, 1fr);
+	font-size: inherit;
+}
+
+.size_65 {
+	grid-template-columns: repeat(64, 1fr);
+	grid-template-rows: repeat(20, 1fr);
+	font-size: inherit;
+}
+
+.size_75 {
+	grid-template-columns: repeat(64, 1fr);
+	grid-template-rows: repeat(24, 1fr);
+	font-size: inherit;
+}
+
+.size_80 {
+	grid-template-columns: repeat(73, 1fr);
+	grid-template-rows: repeat(25, 1fr);
+	font-size: inherit;
+}
+
+.size_96 {
+	grid-template-columns: repeat(76, 1fr);
+	grid-template-rows: repeat(24, 1fr);
+	font-size: inherit;
+}
+
+.size_100 {
+	grid-template-columns: repeat(90, 1fr);
+	grid-template-rows: repeat(25, 1fr);
+	font-size: inherit;
+}
+
+.key {
+  display: flex;
+	justify-content: center;
+	align-items: center;
+	overflow: hidden;
+	grid-row: span 4;
+	background-image: var(--color-gradient);
+	text-align: center;
+}
+
+/* Tastengrößen in Ganzen; u1 = 4*4 Grid-Element (Quadrat), u125 = 5*4 Grid-Element */
+.u025 {
+	grid-column: span 1;
+}
+
+.u05 {
+	grid-column: span 2;
+}
+
+.u1 {
+	grid-column: span 4;
+	aspect-ratio: 1;
+}
+
+.u125 {
+	grid-column: span 5;
+}
+
+.u15 {
+	grid-column: span 6;
+}
+
+.u175 {
+	grid-column: span 7;
+}
+
+.u2 {
+	grid-column: span 8;
+}
+
+.u225 {
+	grid-column: span 9;
+}
+
+.u25 {
+	grid-column: span 10;
+}
+
+.u275 {
+	grid-column: span 11;
+}
+
+.u325 {
+	grid-column: span 13;
+}
+
+.u35 {
+	grid-column: span 14;
+}
+
+.u425 {
+	grid-column: span 17;
+}
+
+.u625 {
+	grid-column: span 25;
+}
+
+/* Numpad-Plus und -Enter */
+.numpad1by2 {
+	grid-column: span 4;
+	grid-row: span 8;
+}
+
+/* Lücke zwischen F-Reihe und Zahlenreihe bei 100 % und 80 % */
+.f-row-gap {
+	grid-column: 1/-1;
+	grid-row: span 1;
+}
+
+.iso-enter {
+	grid-row: -17/span 8;
+	grid-column: span 6/61;
+}
+
+.small-arrow-up {
+	grid-column: 57/span 4;
+	grid-row: -5/span 2;
+}
+
+.small-arrow-down {
+	grid-column: 57/span 4;
+	grid-row: -3/span 2;
+}
+
+/* Die Taste links neben der ISO-Enter-Taste überdeckt diese,
+sodass sie L-förmig erscheint */
+.backslash {
+	grid-column-start: 52;
+	grid-row-start: -13;
+	grid-column-end: span 4;
+	grid-row-end: span 4;
+	z-index: 1;
+	outline: solid var(--color-table) var(--gap-size);
+}
+
+.hidden {
+	background-image: linear-gradient(transparent, transparent);
+}
+
+.key:not(.hidden):hover {
+	background-image: linear-gradient(var(--color-hover), rebeccapurple) !important;
+}
+
+.keydown {
+	background-image: linear-gradient(red, darkred);
+}
+
+.keyup {
+	background-image: linear-gradient(lime, green);
+}

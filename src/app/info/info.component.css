@@ -1,0 +1,55 @@
+.example {
+  display: inline-block;
+  
+	width: clamp(500px, 70%, 1000px);
+  --gap-size: 2px;
+}
+
+.example.size_60 { font-size: clamp(6pt, 1.2vw, 13pt); }
+.example.size_65 { font-size: clamp(5.5pt, 1.1vw, 12pt); }
+.example.size_80 { font-size: clamp(5pt, 0.9vw, 10pt); }
+.example.size_96 { font-size: clamp(5pt, 0.9vw, 10pt); }
+.example.size_75 { font-size: clamp(5.5pt, 1.0vw, 11pt); }
+.example.size_100 { font-size: clamp(4pt, 0.7vw, 8pt); }
+
+::ng-deep #exampleISO #Enter, 
+::ng-deep #exampleJIS #Enter,
+::ng-deep #exampleANSI #Enter,
+::ng-deep #exampleISO #Backslash,
+::ng-deep #exampleANSI #Backslash,
+::ng-deep #exampleJIS #Backslash, 
+::ng-deep #exampleISO #ShiftRight, 
+::ng-deep #exampleANSI #ShiftRight, 
+::ng-deep #exampleJIS #ShiftRight, 
+::ng-deep #exampleISO #Backspace,
+::ng-deep #exampleANSI #Backspace,
+::ng-deep #exampleJIS #Backspace,
+::ng-deep #exampleISO #ShiftLeft,
+::ng-deep #exampleANSI #ShiftLeft,
+::ng-deep #exampleJIS #ShiftLeft {
+background-image: linear-gradient(red, darkred);
+}
+
+::ng-deep #exampleJIS #Backquote,
+::ng-deep #exampleISO #IntlBackslash,
+::ng-deep #exampleJIS #IntlBackslash,
+::ng-deep #exampleJIS #muhenkan,
+::ng-deep #exampleJIS #henkan,
+::ng-deep #exampleJIS #HiraganaKatakana {
+  background-image: linear-gradient(lime, green);
+}
+
+.keyboardContainer {
+  text-align: left;
+  display: inline-block;
+}
+
+::ng-deep .example.same-key-size {
+  display: inline-block;
+  width: fit-content;
+  font-size: min(1vw, 11pt);
+}
+
+::ng-deep .same-key-size .u1 {
+  width: 6ch;
+}

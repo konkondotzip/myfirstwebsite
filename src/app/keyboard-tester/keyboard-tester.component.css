@@ -1,0 +1,41 @@
+input {
+  color: var(--color-bg);
+  background-color: var(--color-fg);
+}
+
+.keyboard-container {
+	width: 75%;
+	margin: auto;
+}
+
+/* Tastaturen sind als grid dargestellt, da die Zeilen versetzt sind */
+app-keyboard {
+	--gap-size: 3px;
+  width: 90%;
+}
+/* Größen der Tastatur */
+/* Größe einzelner Tasten ist in Vierteln angegeben */
+/* Bsp.: 60 % ist 60/4=15 Tasten breit; 20/4=5 Tasten hoch */
+.size_60 {
+	font-size: 1.3vw;
+}
+
+.size_65 {
+	font-size: 1.2vw;
+}
+
+.size_75 {
+	font-size: 1.2vw;
+}
+
+.size_80 {
+	font-size: 1.1vw;
+}
+
+.size_96 {
+	font-size: 1.0vw;
+}
+
+.size_100 {
+	font-size: 0.9vw;
+}

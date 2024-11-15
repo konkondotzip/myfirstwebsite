@@ -1,0 +1,60 @@
+.inline-table-child {
+  display: inline-table;
+  width: 50%;
+}
+
+.inline-block-child {
+  display: inline-block;
+}
+
+.name-input {
+  display: inline-block;
+  vertical-align: middle;
+  width: 50%;
+}
+
+.disabled {
+  color: grey;
+}
+
+input#file-upload[type="file"] {
+  display: none;
+}
+
+.start-button {
+  display: inline-block;
+  width: 25%;
+  padding: 2%;
+  vertical-align: middle;
+  font-size: large;
+  font-weight: 700;
+}
+
+.download-btn, .file-upload {
+  background-color: var(--color-bg) !important;
+  color: var(--color-fg) !important;
+  display: inline-block;
+  vertical-align: middle;
+  cursor: pointer;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 10px;
+  width: 25%;
+  font-size: smaller;
+  height: fit-content;
+  background-color: var(--color-fg);
+  color: var(--color-bg);
+  border: solid var(--color-table) 2px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  text-decoration: none;
+}
+
+h3 {
+  margin-bottom: 5px;
+}
+
+.highscores {
+  width: auto;
+  font-size: small;
+}

@@ -1,0 +1,8 @@
+<select
+(change)="updateSize(selectedSize)"
+[(ngModel)]="selectedSize">
+  <option *ngFor="let size of sizes"
+  [ngValue]="size">
+    {{size.name}}
+  </option>
+</select>
