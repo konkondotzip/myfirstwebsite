@@ -8,6 +8,7 @@
   --color-hover: #63a853;
   --color-error: indianred;
   --color-gradient: linear-gradient(white, var(--color-bg));
+  --text-gradient: linear-gradient(var(--color-table), var(--color-fg));
 }
 
 .dark-theme {
@@ -17,6 +18,23 @@
   --color-hover: #1e5511 !important;
   --color-error: darkred;
   --color-gradient: linear-gradient(var(--color-bg), black) !important;
+  --text-gradient: linear-gradient(45deg, var(--color-fg), var(--color-table)) !important;
+}
+
+
+h1 {
+  background-color: var(--color-table);
+  
+  background-image: var(--text-gradient);
+  
+  background-size: 20%;
+  background-repeat: repeat;
+  background-clip: text;
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; 
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
 }
 
 html {
@@ -70,7 +88,6 @@ footer {
 
 .navigation {
   table-layout: fixed;
-  width: 40%;
 }
 
 .bottom-padding {

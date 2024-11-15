@@ -1,14 +1,19 @@
 th {
   text-align: center;
   font-weight: bold;
-  padding: 10px;
 }
 
 th a {
   display: block;
   font-size: larger;
+  padding: 5vh;
   text-decoration: none;
   color: var(--color-bg);
+}
+
+th:hover, th a:hover {
+  background-image: var(--color-gradient);
+  color: var(--color-fg);
 }
 
 .invalid {
