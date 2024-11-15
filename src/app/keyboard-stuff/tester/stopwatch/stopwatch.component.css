@@ -1,12 +1,3 @@
-.inline-table-child {
-  display: inline-table;
-  width: 50%;
-}
-
-.inline-block-child {
-  display: inline-block;
-}
-
 .name-input {
   display: inline-block;
   vertical-align: middle;

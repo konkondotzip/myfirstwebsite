@@ -3,7 +3,7 @@ import { Size } from './size/size';
 import { Layout } from './layout/layout';
 import { LayoutService } from './layout/layout.service';
 import { Key } from './key/key';
-import data from '../../../db.json'
+import data from '../../../../db.json'
 
 @Injectable({
   providedIn: 'root'

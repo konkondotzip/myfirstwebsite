@@ -161,7 +161,7 @@ sodass sie L-förmig erscheint */
 }
 
 .key:not(.hidden):hover {
-	background-image: linear-gradient(var(--color-hover), rebeccapurple) !important;
+	background-image: linear-gradient(var(--color-bg), var(--color-hover)) !important;
 }
 
 .keydown {

@@ -1,3 +1,24 @@
+:root {
+  --color-dark: #2e1e15;
+  --color-bright: #fee1d8;
+  --color-bg: var(--color-bright);
+  --color-table: #f09b4b;
+  --color-fg: var(--color-dark);
+  --color-link: #1e5511;
+  --color-hover: #63a853;
+  --color-error: indianred;
+  --color-gradient: linear-gradient(white, var(--color-bg));
+}
+
+.dark-theme {
+  --color-bg: var(--color-dark) !important;
+  --color-fg: var(--color-bright) !important;
+  --color-link: #63a853 !important;
+  --color-hover: #1e5511 !important;
+  --color-error: darkred;
+  --color-gradient: linear-gradient(var(--color-bg), black) !important;
+}
+
 html {
   background-color: var(--color-bg);
   font-family: 'Fira Code', 'JetBrains Mono', 'Consolas', 'Courier New', monospace;
@@ -5,21 +26,6 @@ html {
   --div-width: clamp(500px, 70%, 1000px);
   --font-size: 12pt;
   font-size: var(--font-size);
-  --color-bg: papayawhip;
-  --color-table: chocolate;
-  --color-fg: #310;
-  --color-link: blue;
-  --color-hover: aqua;
-  --color-gradient: linear-gradient(white, var(--color-bg));
-}
-
-.dark-theme {
-  --color-bg: #410 !important;
-  --color-table: chocolate !important;
-  --color-fg: papayawhip !important;
-  --color-link: aqua !important;
-  --color-hover: blue !important;
-  --color-gradient: linear-gradient(var(--color-bg), black) !important;
 }
 
 @font-face {
@@ -62,6 +68,11 @@ footer {
   text-align: right;
 }
 
+.navigation {
+  table-layout: fixed;
+  width: 40%;
+}
+
 .bottom-padding {
   padding: 100px;
 }
@@ -78,7 +89,7 @@ footer {
 
 #main-page-link {
   background-color: var(--color-table);
-  color: var(--color-fg);
+  color: var(--color-dark);
   position: fixed;
   padding: 10px;
   top: 0;
@@ -88,24 +99,17 @@ footer {
 
 #back-to-top {
   background-color: var(--color-table);
-  color: var(--color-fg);
+  color: var(--color-dark);
   position: fixed;
   padding: 10px;
   bottom: 34px;
   right: 0;
 }
 
-#contact {
-  background-color: var(--color-table);
-  color: var(--color-fg);
-  position: fixed;
-  padding: 10px;
-  top: 0;
-  left: 50px;
-}
-
 #theme-toggle {
-  background-color: var(--color-table);
+  background-color: var(--color-dark);
+  border-right: solid var(--color-table) 1px !important;
+  border-bottom: solid var(--color-table) 1px !important;
   color: var(--color-fg);
   position: fixed;
   padding: 10px;
@@ -166,7 +170,7 @@ img {
 }
 
 .invalid {
-  background-color: red;
+  background-color: var(--color-error);
 }
 
 .error {
@@ -176,4 +180,13 @@ img {
 
 .hidden {
   display: none;
+}
+
+.inline-table-child {
+  display: inline-table;
+  width: 50%;
+}
+
+.inline-block-child {
+  display: inline-block;
 }

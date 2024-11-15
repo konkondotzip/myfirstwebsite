@@ -1,0 +1,12 @@
+th {
+  text-align: center;
+  font-weight: bold;
+  padding: 5%;
+}
+
+th a {
+  display: block;
+  font-size: larger;
+  text-decoration: none;
+  color: var(--color-bg);
+}

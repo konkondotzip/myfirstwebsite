@@ -1,13 +1,11 @@
 import { Injectable } from '@angular/core';
-import { Database } from '../../database';
 import { Size } from './size';
-import data from '../../../../db.json';
+import data from '../../../../../db.json';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SizeService {
-  static sizesUrl: string = Database.url + "/sizes";
   static defaultSizeId: number = 100;
   static defaultSizeName: string = "size_" + SizeService.defaultSizeId;
 
