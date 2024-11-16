@@ -1,13 +1,33 @@
 import { Key } from "./key/key";
-import { KeyboardService } from "./keyboard.service";
 import { Layout } from "./layout/layout";
 import { Size } from "./size/size";
-import { LayoutService } from "./layout/layout.service";
+import data from "../keyboard-db.json"
 
 /**
  * Eine Tastatur mit Tasten, angeordnet je nach Größe und Layout.
  */
 export class Keyboard {
+  static defaultLayout: Layout = new Layout();
+  static defaultSize: Size = new Size();
+  static defaultKeyLegends: Key[] = this.getKeyLegends();
+  static defaultKeySizes: Key[] = this.getKeySizes();
+  
+  static getKeySizes(standard?: string): Key[] {
+    let list: Key[] = [];
+    data.standards.find(std => std.id == (standard ?? "default"))?.keys.forEach((key: any) => {
+      list.push(new Key(key.code, key.size, key.legend, key.visible));
+    });
+    return list;
+  }
+  
+  static getKeyLegends(language?: string): Key[] {
+    let list: Key[] = [];
+    data.languages.find(std => std.id == (language ?? "default"))?.keys.forEach((key: any) => {
+      list.push(new Key(key.code, key.size, key.legend, key.visible));
+    });
+    return list;
+  }
+  
   /**
    * Die Tastatur kann man anhand der ID eindeutig im HTML oder CSS ansprechen.
    */
@@ -34,10 +54,10 @@ export class Keyboard {
    * @param layout Sprache und Standard der Tastatur. Default: `KeyboardService.defaultLayout`
    */
   constructor(id?: string, size?: Size, layout?: Layout) {
-    this.size = size ?? KeyboardService.defaultSize;
-    this.layout = layout ?? KeyboardService.defaultLayout;
+    this.size = size ?? Keyboard.defaultSize;
+    this.layout = layout ?? Keyboard.defaultLayout;
     this.id = id ?? "keyboard_" + this.layout.id + "_size-" + this.size.id;
-    this.generateKeys().then;
+    this.generateKeys();
   }
 
   public updateId() {
@@ -97,33 +117,33 @@ export class Keyboard {
   /**
    * Generiert alle Tasten der Tastatur (Das `keys`-Array) je nach Layout und Größe mit Beschriftung.
    */
-  public async generateKeys() {
+  public generateKeys() {
     /**
      * Layout-Standard wie "iso", "ansi" oder "jis"
      */
-    let standard: string = this.layout.standard ?? LayoutService.defaultStandard;
+    let standard: string = this.layout.standard ?? Layout.defaultStandard;
     /**
      * Layout-Sprache wie "de", "us" oder "ja"
      */
-    let language: string = this.layout.language ?? LayoutService.defaultLanguage;
+    let language: string = this.layout.language ?? Layout.defaultLanguage;
     /**
      * Layout-Größen-ID wie 100 für 100 %, 96 für 96 % usw.
      */
-    let size: number = this.size.id ?? KeyboardService.defaultSize.id;
+    let size: number = this.size.id ?? Keyboard.defaultSize.id;
     /**
      * Die Tasten, bei denen sich die Beschriftungen vom Default unterscheiden
      */
-    let keyText: Key[] = await KeyboardService.getAllKeyText(language);
+    let keyLegends: Key[] = Keyboard.getKeyLegends(language);
     /**
      * Die Default-Tastenbeschriftung
      */
-    let defaultKeyText: Key[] = await KeyboardService.getAllKeyText();
+    let defaultKeyLegends: Key[] = Keyboard.getKeyLegends();
     /**
      * Die Tasten, bei denen sich die Größen vom Default unterscheiden
      */
-    let keySizes: Key[] = await KeyboardService.getAllKeySizes(standard);
+    let keySizes: Key[] = Keyboard.getKeySizes(standard);
     // Als Ausgangspunkt richten sich die Größen der Tasten nach dem Default
-    this.keys = await KeyboardService.getAllKeySizes();
+    this.keys = Keyboard.getKeySizes();
 
     // Je nach Layout-Standard sind die Tasten anders angeordnet bzw. sind andere Tasten vorhanden
     switch (standard) {
@@ -152,9 +172,9 @@ export class Keyboard {
         this.moveKey("Space", "henkan");
         this.moveKey("henkan", "HiraganaKatakana");
         this.moveKey("HiraganaKatakana", "henkan");
-        let found = defaultKeyText.find(k => k.code == "Backspace");
+        let found = defaultKeyLegends.find(k => k.code == "Backspace");
         if (found) {
-          found.text = "Back-space";
+          found.legend = "Back-space";
         }
         break;
       }
@@ -297,11 +317,11 @@ export class Keyboard {
         if (standard == "jis") this.resizeKey("Function", "u1");
       }
     }
-    
+
     // Tastengrößen und -text zu einem Array vereinen
     this.keys.forEach((key: Key) => {
       key.size = keySizes.find(k => k.code == key.code)?.size ?? key.size ?? "u1";
-      key.text = keyText.find(k => k.code == key.code)?.text ?? defaultKeyText.find(k => k.code == key.code)?.text ?? "";
+      key.legend = keyLegends.find(k => k.code == key.code)?.legend ?? defaultKeyLegends.find(k => k.code == key.code)?.legend ?? "";
     });
   }
 }

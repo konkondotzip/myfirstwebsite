@@ -5,6 +5,10 @@
   --gap-size: 2px;
 }
 
+img {
+  width: var(--div-width);
+}
+
 .example.size_60 { font-size: clamp(6pt, 1.2vw, 13pt); }
 .example.size_65 { font-size: clamp(5.5pt, 1.1vw, 12pt); }
 .example.size_80 { font-size: clamp(5pt, 0.9vw, 10pt); }

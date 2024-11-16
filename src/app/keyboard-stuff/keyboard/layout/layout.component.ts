@@ -2,7 +2,6 @@ import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Layout } from './layout';
-import { LayoutService } from './layout.service';
 
 @Component({
   selector: 'app-layout',
@@ -24,7 +23,7 @@ export class LayoutComponent {
   }
 
   constructor() {
-    this.layouts = LayoutService.getAllLayouts();
-    this.selectedLayout = this.layouts[LayoutService.findDefaultLayoutIndex(this.layouts)];
+    this.layouts = Layout.getAllLayouts();
+    this.selectedLayout = this.layouts[Layout.findDefaultLayoutIndex(this.layouts)];
   }
 }

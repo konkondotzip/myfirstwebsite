@@ -9,6 +9,6 @@ export const routes: Routes = [
   {path: '', component: LandingPageComponent},
   {path: 'keyboard-main-page', component: MainPageComponent},
   {path: 'keyboard-tester', component: KeyboardTesterComponent},
-  {path: 'info', component: InfoComponent},
+  {path: 'keyboard-info', component: InfoComponent},
   {path: '**', component: PageNotFoundComponent}
 ];

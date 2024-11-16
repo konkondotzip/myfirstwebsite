@@ -2,5 +2,5 @@
   <div class="key" *ngFor="let key of keyboard?.keys"
   id="{{key.code}}" class="{{key.size}}"
   [ngClass]="{hidden: (key.visible == false), keyup: key.keyup, keydown: key.keydown}"
-  [innerHtml]="key.text"></div>
+  [innerHtml]="key.legend"></div>
 </div>

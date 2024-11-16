@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Size } from './size';
-import data from '../../../../../db.json';
+import data from '../../keyboard-db.json';
 
 @Injectable({
   providedIn: 'root'
