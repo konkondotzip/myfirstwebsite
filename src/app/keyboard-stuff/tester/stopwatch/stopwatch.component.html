@@ -10,6 +10,7 @@
   </div>
   <div class="child inline-table-child">
     <h3>Bestzeiten</h3>
+    <p class="center">Hier werden Bestzeiten angezeigt.</p>
     <div *ngIf="highscores.length > 0">
       <a class="download-btn" [href]="downloadHighscoreHref" download="keyboard-tester-highscores.json" [innerHTML]="downloadHighscoreText"></a>
       <label for="file-upload" class="file-upload"><span [innerHTML]="uploadHighscoreText"></span></label>

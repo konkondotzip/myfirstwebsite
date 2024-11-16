@@ -4,7 +4,7 @@
 <div class="center">
   <app-size #child (size)="updateSize($event)"/>
   <app-layout #child (layout)="updateLayout($event)"/>
-  <input (keydown)="$event.preventDefault()" value="Hier klicken und tippen..."/>
+  <input (keydown)="onKeyDown($event)" [(ngModel)]="inputText"/>
 
   <div class="separator"></div>
   

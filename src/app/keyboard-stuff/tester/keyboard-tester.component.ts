@@ -20,9 +20,16 @@ import { FormsModule } from '@angular/forms';
 export class KeyboardTesterComponent {
   keyboard: Keyboard = new Keyboard();
   size: Size = new Size();
-
+  static defaultInputText = "Hier klicken und tippen...";
+  inputText: string = KeyboardTesterComponent.defaultInputText;
+  
   @ViewChild(StopwatchComponent)
   stopwatch: StopwatchComponent = inject(StopwatchComponent);
+
+  onKeyDown($event: KeyboardEvent) {
+    $event.preventDefault();
+    this.inputText = KeyboardTesterComponent.defaultInputText;
+  }
 
   /**
    * Update der Tastatur nach Auswahl aus `layout.component`-Dropdownmenü
