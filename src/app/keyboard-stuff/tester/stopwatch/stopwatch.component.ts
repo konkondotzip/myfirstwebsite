@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Injectable, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Injectable, Input, OnDestroy, Output } from '@angular/core';
 import { Key } from '../../keyboard/key/key';
 import { Highscore } from './highscore';
 import { Keyboard } from '../../keyboard/keyboard';
@@ -20,7 +20,7 @@ import { FormControl, FormsModule, Validators } from '@angular/forms';
   templateUrl: './stopwatch.component.html',
   styleUrl: './stopwatch.component.css'
 })
-export class StopwatchComponent {
+export class StopwatchComponent implements OnDestroy {
   @Output() reset = new EventEmitter<true>;
   
   @Input() keyboard = new Keyboard();

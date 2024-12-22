@@ -55,24 +55,32 @@ export class KeyboardTesterComponent {
     this.stopwatch.resetText();
   }
 
+  findKey(event: KeyboardEvent): Key | undefined {
+    return this.keyboard.keys.find(k => k.code == event.code) ?? this.keyboard.keys.find(k => k.code == event.key);
+  }
+
   @HostListener('document:keydown', ['$event'])
   handleKeydownEvent(event: KeyboardEvent) {
-    let key: Key | undefined = Key.getKey(event, this.keyboard.keys);
-    if (key) {
-      key.keydown = true;
-      key.keyup = false;
+    if (event.code != "") {
+      let key: Key | undefined = this.findKey(event);
+      if (key) {
+        key.keydown = true;
+        key.keyup = false;
+      }
+      this.stopwatch.checkWin();
     }
-    this.stopwatch.checkWin();
   }
   
   @HostListener('document:keyup', ['$event'])
   handleKeyupEvent(event: KeyboardEvent) {
-    let key: Key | undefined = Key.getKey(event, this.keyboard.keys);
-    if (key) {
-      key.keydown = false;
-      key.keyup = true;
+    if (event.code != "") {
+      let key: Key | undefined = this.findKey(event);
+      if (key) {
+        key.keydown = false;
+        key.keyup = true;
+      }
+      this.stopwatch.checkWin();
     }
-    this.stopwatch.checkWin();
   }
 
   resetKeys() {

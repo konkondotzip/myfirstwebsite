@@ -1,0 +1,15 @@
+.grid-container {
+  display: inline-grid;
+  grid-template-columns: repeat(3, minmax(100px, 1fr));
+  gap: 10px;
+}
+
+.grid-row {
+  display: contents;
+}
+
+.grid-item {
+  padding: 10px;
+  border: 1px solid #ccc;
+  text-align: center;
+}

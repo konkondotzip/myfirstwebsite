@@ -15,10 +15,6 @@ export class Key {
     this.keydown = false;
   }
 
-  static getKey(event: KeyboardEvent, keyboard: Key[]): Key | undefined {
-    return keyboard.find(k => k.code == event.code) ?? keyboard.find(k => k.code == event.key);
-  }
-
   /**
    * Position einer Taste innerhalb der Tastatur ändern.
    * @param keyCode Der `KeyboardEvent.code` der zu verschiebenden Taste.
