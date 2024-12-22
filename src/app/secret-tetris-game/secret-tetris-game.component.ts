@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, HostListener, OnDestroy } from '@angular/core';
+import { setThrowInvalidWriteToSignalError } from '@angular/core/primitives/signals';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -142,8 +143,12 @@ export class SecretTetrisGameComponent implements OnDestroy {
   currentPiece: { shape: number[][], x: number, y: number, rotation: number } = {
     shape: [], x: 3, y: 0, rotation: 0
   };
-  nextPiece: { shape: number[][] } = { shape: [] }
+  nextPiece: { shape: number[][] } = { shape: [] };
   nextPieceDisplay: number[][] = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]];
+  nextNextPiece: { shape: number[][] } = { shape: [] };
+  heldPiece: { shape: number[][], isHeld: boolean } = { shape: [], isHeld: false };
+  heldPieceDisplay: number[][] = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]];
+  canHoldPiece: boolean = true;
 
   running: boolean = false;
   paused: boolean = false;
@@ -169,7 +174,8 @@ export class SecretTetrisGameComponent implements OnDestroy {
   nextText: string = "NEXT:";
   linesText: string = "LINES:";
   progressText: string = "PROGRESS:";
-  controlsText: string = "[←][↓][→]: Move, [↑]: Drop, [A][S]: Rotate";
+  heldText: string = "HELD:";
+  controlsText: string = "[←][↓][→]: Move, [↑]: Drop</br>[A][S]: Rotate, [Shift]: Hold";
 
   getRandomShape(): number[][] {
     let randomIndex = Math.floor(Math.random() * this.shapes.length);
@@ -185,12 +191,23 @@ export class SecretTetrisGameComponent implements OnDestroy {
     return ret;
   }
 
-  makeDisplayShape() {
+  makeNextDisplayShape() {
     this.nextPieceDisplay = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]];
     for (let y = 0; y < this.nextPiece.shape.length; y++) {
       for (let x = 0; x < this.nextPiece.shape[y].length; x++) {
         if (this.nextPiece.shape[y][x]) {
           this.nextPieceDisplay[y][x] = this.nextPiece.shape[y][x];
+        }
+      }
+    }
+  }
+
+  makeHeldDisplayShape() {
+    this.heldPieceDisplay = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]];
+    for (let y = 0; y < this.heldPiece.shape.length; y++) {
+      for (let x = 0; x < this.heldPiece.shape[y].length; x++) {
+        if (this.heldPiece.shape[y][x]) {
+          this.heldPieceDisplay[y][x] = this.heldPiece.shape[y][x];
         }
       }
     }
@@ -218,12 +235,13 @@ export class SecretTetrisGameComponent implements OnDestroy {
       this.stopGame();
     }
   }
-  
+
   startGame() {
     this.running = true;
     this.gameOver = false;
-    this.paused = false; 
+    this.paused = false;
     this.startBtnText = "Quit";
+    this.linesCleared = 0;
     if (this.qrMode) {
       for (let i = 0; i < this.qrProgress; i++) {
         this.QR.progress[i] = this.QR.shape[i];
@@ -236,7 +254,7 @@ export class SecretTetrisGameComponent implements OnDestroy {
     this.spawnPiece();
     this.timer = setInterval(() => { this.moveDown(); }, 500);
   }
-  
+
   stopGame() {
     this.running = false;
     this.paused = false;
@@ -274,7 +292,7 @@ export class SecretTetrisGameComponent implements OnDestroy {
         this.board[y][x] = this.frozenBoard[y][x];
       }
     }
-    
+
     // Den jetzigen Stein auf das Spielfeld platzieren
     for (let y = 0; y < this.currentPiece.shape.length; y++) {
       for (let x = 0; x < this.currentPiece.shape[y].length; x++) {
@@ -310,7 +328,7 @@ export class SecretTetrisGameComponent implements OnDestroy {
         if (
           this.currentPiece.shape[y][x] && (
             (this.frozenBoard[this.currentPiece.y + y + offsetY] &&
-             this.frozenBoard[this.currentPiece.y + y + offsetY][this.currentPiece.x + x + offsetX]) !== 0
+              this.frozenBoard[this.currentPiece.y + y + offsetY][this.currentPiece.x + x + offsetX]) !== 0
           )
         ) {
           return true;
@@ -326,7 +344,7 @@ export class SecretTetrisGameComponent implements OnDestroy {
         this.linesCleared += 1;
         if (this.qrMode && y == this.boardHeight - 1) {
           this.QR.progress[this.qrProgress] = JSON.parse(JSON.stringify(this.QR.shape[0]));
-          this.frozenBoard.pop();          
+          this.frozenBoard.pop();
           this.frozenBoard.push(this.QR.shape.shift() ?? Array(this.boardWidth).fill(0));
 
           this.qrProgress += 1;
@@ -339,12 +357,20 @@ export class SecretTetrisGameComponent implements OnDestroy {
   }
 
   spawnPiece() {
+    this.canHoldPiece = true;
+
     this.currentPiece.y = 0;
     this.currentPiece.x = Math.floor(this.boardWidth / 2 - 1.5);
     if (this.currentPiece.shape.length == 2) this.currentPiece.x += 1;
 
     this.currentPiece.shape = this.nextPiece.shape;
-    this.nextPiece.shape = this.getRandomShape();
+
+    if (this.nextNextPiece.shape.length != 0) {
+      this.nextPiece.shape = this.nextNextPiece.shape;
+      this.nextNextPiece.shape = [];
+    } else {
+      this.nextPiece.shape = this.getRandomShape();
+    }
 
     if (this.checkCollision(0, 0)) {
       // Game Over
@@ -352,7 +378,7 @@ export class SecretTetrisGameComponent implements OnDestroy {
       this.startBtnText = "Retry";
       this.stopGame();
     } else {
-      this.makeDisplayShape();
+      this.makeNextDisplayShape();
       this.updateBoard();
     }
 
@@ -402,7 +428,10 @@ export class SecretTetrisGameComponent implements OnDestroy {
   rotateRight() {
     this.currentPiece.shape = this.currentPiece.shape[0].map(
       (val, index) => this.currentPiece.shape.map(row => row[index]).reverse());
+    
     if (!this.checkCollision(0, 0)) {
+      this.currentPiece.rotation += 1;
+      this.currentPiece.rotation %= 4;
       this.updateBoard();
     } else {
       this.rotateLeft();
@@ -412,10 +441,50 @@ export class SecretTetrisGameComponent implements OnDestroy {
   rotateLeft() {
     this.currentPiece.shape = this.currentPiece.shape[0].map(
       (val, index) => this.currentPiece.shape.map(row => row[row.length - 1 - index]));
+      
     if (!this.checkCollision(0, 0)) {
+      this.currentPiece.rotation -= 1;
+      this.currentPiece.rotation %= 4;
       this.updateBoard();
     } else {
       this.rotateRight();
+    }
+  }
+
+  holdPiece() {
+    if (!this.canHoldPiece) return;
+    this.canHoldPiece = false;
+
+    this.currentPiece.y = 0;
+    this.currentPiece.x = Math.floor(this.boardWidth / 2 - 1.5);
+    if (this.currentPiece.shape.length == 2) this.currentPiece.x += 1;
+    if (this.currentPiece.rotation < 0) {
+      for (let i = 0; i > this.currentPiece.rotation; i--) {
+        this.rotateLeft();
+      }
+    } else {
+      for (let i = 0; i < this.currentPiece.rotation; i++) {
+        this.rotateRight();
+      }
+    }
+
+    if (this.heldPiece.isHeld) {
+      // hat einen Stein im Inventar: Stein aus Inventar ins Spielfeld legen
+      this.nextNextPiece.shape = this.nextPiece.shape;
+      this.nextPiece.shape = this.currentPiece.shape;
+      this.currentPiece.shape = this.heldPiece.shape;
+      this.heldPiece.shape = [];
+      this.makeNextDisplayShape();
+      this.makeHeldDisplayShape();
+      this.heldPiece.isHeld = false;
+    } else {
+      // hat KEINEN Stein im Inventar: jetzigen Stein ins Inventar legen
+      this.currentPiece.rotation = 0;
+      this.heldPiece.shape = this.currentPiece.shape;
+      this.heldPiece.isHeld = true;
+      this.makeHeldDisplayShape();
+      this.spawnPiece();
+      this.canHoldPiece = false;
     }
   }
 
@@ -446,7 +515,10 @@ export class SecretTetrisGameComponent implements OnDestroy {
         this.rotateRight();
         break;
       case 'ShiftLeft':
-        // Todo (optional): Inventar
+        this.holdPiece();
+        break;
+      case 'ShiftRight':
+        this.holdPiece();
         break;
     }
   }
