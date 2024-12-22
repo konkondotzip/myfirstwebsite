@@ -346,6 +346,12 @@ export class SecretTetrisGameComponent implements OnDestroy {
           this.frozenBoard.pop();
           this.frozenBoard.push(this.QR.shape.shift() ?? Array(this.boardWidth).fill(0));
 
+          if (this.qrProgress == 21) {
+            this.gameOver = true;
+            this.startBtnText = "Retry";
+            this.stopGame();
+          }
+          
           this.qrProgress += 1;
         } else {
           this.frozenBoard.splice(y, 1);
