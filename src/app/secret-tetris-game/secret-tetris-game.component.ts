@@ -19,7 +19,7 @@ export class SecretTetrisGameComponent implements OnDestroy {
     shape:
       [
         [0, 0, 0, 0],
-        [1, 1, 1, 1],
+        [8, 8, 8, 8],
         [0, 0, 0, 0],
         [0, 0, 0, 0]
       ],
@@ -28,8 +28,8 @@ export class SecretTetrisGameComponent implements OnDestroy {
   J: { shape: number[][], name: string } = {
     shape:
       [
-        [1, 0, 0],
-        [1, 1, 1],
+        [2, 0, 0],
+        [2, 2, 2],
         [0, 0, 0]
       ],
     name: "J"
@@ -37,8 +37,8 @@ export class SecretTetrisGameComponent implements OnDestroy {
   L: { shape: number[][], name: string } = {
     shape:
       [
-        [0, 0, 1],
-        [1, 1, 1],
+        [0, 0, 3],
+        [3, 3, 3],
         [0, 0, 0]
       ],
     name: "L"
@@ -46,16 +46,16 @@ export class SecretTetrisGameComponent implements OnDestroy {
   O: { shape: number[][], name: string } = {
     shape:
       [
-        [1, 1],
-        [1, 1]
+        [4, 4],
+        [4, 4]
       ],
     name: "O"
   }
   S: { shape: number[][], name: string } = {
     shape:
       [
-        [0, 1, 1],
-        [1, 1, 0],
+        [0, 5, 5],
+        [5, 5, 0],
         [0, 0, 0]
       ],
     name: "S"
@@ -63,8 +63,8 @@ export class SecretTetrisGameComponent implements OnDestroy {
   T: { shape: number[][], name: string } = {
     shape:
       [
-        [0, 1, 0],
-        [1, 1, 1],
+        [0, 6, 0],
+        [6, 6, 6],
         [0, 0, 0]
       ],
     name: "T"
@@ -72,8 +72,8 @@ export class SecretTetrisGameComponent implements OnDestroy {
   Z: { shape: number[][], name: string } = {
     shape:
       [
-        [1, 1, 0],
-        [0, 1, 1],
+        [7, 7, 0],
+        [0, 7, 7],
         [0, 0, 0]
       ],
     name: "Z"
@@ -88,7 +88,6 @@ export class SecretTetrisGameComponent implements OnDestroy {
   frozenBoard: number[][] = [];
 
   checkName() {
-    console.log(this.playerName);
     if (this.playerName == "Wordolf") {
       this.qrMode = true;
       this.boardWidth = 21;
@@ -454,18 +453,16 @@ export class SecretTetrisGameComponent implements OnDestroy {
   holdPiece() {
     if (!this.canHoldPiece) return;
     this.canHoldPiece = false;
-
+    
     this.currentPiece.y = 0;
     this.currentPiece.x = Math.floor(this.boardWidth / 2 - 1.5);
     if (this.currentPiece.shape.length == 2) this.currentPiece.x += 1;
-    if (this.currentPiece.rotation < 0) {
-      for (let i = 0; i > this.currentPiece.rotation; i--) {
-        this.rotateLeft();
-      }
-    } else {
-      for (let i = 0; i < this.currentPiece.rotation; i++) {
-        this.rotateRight();
-      }
+    
+    while (this.currentPiece.rotation < 0) {
+      this.rotateLeft();
+    }
+    while (this.currentPiece.rotation > 0) {
+      this.rotateRight();
     }
 
     if (this.heldPiece.isHeld) {
@@ -477,6 +474,7 @@ export class SecretTetrisGameComponent implements OnDestroy {
       this.makeNextDisplayShape();
       this.makeHeldDisplayShape();
       this.heldPiece.isHeld = false;
+      this.updateBoard();
     } else {
       // hat KEINEN Stein im Inventar: jetzigen Stein ins Inventar legen
       this.currentPiece.rotation = 0;
