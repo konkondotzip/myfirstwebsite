@@ -342,7 +342,9 @@ export class SecretTetrisGameComponent implements OnDestroy {
       if (this.frozenBoard[y].every(x => x)) {
         this.linesCleared += 1;
         if (this.qrMode && y == this.boardHeight - 1) {
-          this.QR.progress[this.qrProgress] = JSON.parse(JSON.stringify(this.QR.shape[0]));
+          if (this.QR.shape[0]) {
+            this.QR.progress[this.qrProgress] = JSON.parse(JSON.stringify(this.QR.shape[0]));
+          }
           this.frozenBoard.pop();
           this.frozenBoard.push(this.QR.shape.shift() ?? Array(this.boardWidth).fill(0));
 
