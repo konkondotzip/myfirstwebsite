@@ -2,13 +2,13 @@
   --color-dark: #2e1e15;
   --color-bright: #fee1d8;
   --color-bg: var(--color-bright);
-  --color-table: #f09b4b;
+  --color-orange: #f09b4b;
   --color-fg: var(--color-dark);
   --color-link: #1e5511;
   --color-hover: #63a853;
   --color-error: indianred;
   --color-gradient: linear-gradient(white, var(--color-bg));
-  --text-gradient: linear-gradient(var(--color-table), var(--color-fg));
+  --text-gradient: linear-gradient(var(--color-orange), var(--color-fg));
 }
 
 .dark-theme {
@@ -18,12 +18,12 @@
   --color-hover: #1e5511 !important;
   --color-error: darkred;
   --color-gradient: linear-gradient(var(--color-bg), black) !important;
-  --text-gradient: linear-gradient(var(--color-fg), var(--color-table)) !important;
+  --text-gradient: linear-gradient(var(--color-fg), var(--color-orange)) !important;
 }
 
 
 h1 {
-  background-color: var(--color-table);
+  background-color: var(--color-orange);
   
   background-image: var(--text-gradient);
   
@@ -62,7 +62,7 @@ select, button, input, textarea {
   margin: 0px 4.5px;
   color: var(--color-fg);
   background-color: var(--color-bg);
-  border: solid var(--color-table) 2px;
+  border: solid var(--color-orange) 2px;
 }
 
 .submit-button {
@@ -84,10 +84,6 @@ button {
 
 footer {
   text-align: right;
-}
-
-.navigation {
-  table-layout: fixed;
 }
 
 .bottom-padding {
@@ -116,12 +112,11 @@ footer {
 }
 
 #main-page-link {
-  background-color: var(--color-table);
+  background-color: transparent;
   color: var(--color-dark);
   position: fixed;
-  padding: 10px;
+  padding: 0px;
   height: 64px;
-  image-rendering: pixelated;
   top: 0;
   left: 0;
   z-index: 99;
@@ -137,12 +132,12 @@ footer {
 }
 
 #theme-toggle {
-  background-color: var(--color-link);
+  background-color: transparent;
   border: 0;
   color: var(--color-fg);
   position: fixed;
   padding: 10px;
-  height: 40px;
+  height: 64px;
   aspect-ratio: 1;
   margin: 0;
   border-radius: 0;
@@ -154,7 +149,7 @@ footer {
 
 table {
   width: var(--div-width);
-  background-color: var(--color-table);
+  background-color: var(--color-orange);
   padding: 5px;
   border-spacing: 5px;
 }
@@ -184,10 +179,10 @@ p {
 
 .source, .annotation {
   font-size: smaller;
-  color: var(--color-table);
+  color: var(--color-orange);
 }
 .source a, .annotation {
-  color: var(--color-table);
+  color: var(--color-orange);
 }
 
 h1, h2, h3 {

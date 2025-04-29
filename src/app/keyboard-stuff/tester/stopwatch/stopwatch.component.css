@@ -35,7 +35,7 @@ input#file-upload[type="file"] {
   height: fit-content;
   background-color: var(--color-fg);
   color: var(--color-bg);
-  border: solid var(--color-table) 2px;
+  border: solid var(--color-orange) 2px;
   margin-bottom: 10px;
   border-radius: 10px;
   text-decoration: none;
