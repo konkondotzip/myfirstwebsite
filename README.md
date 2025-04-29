@@ -11,3 +11,4 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 * i18n german/english
 * better rendering on mobile
 * framework for more subpages
+* revamped tetris game
