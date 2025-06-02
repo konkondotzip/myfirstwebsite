@@ -9,6 +9,7 @@
   --color-error: indianred;
   --color-gradient: linear-gradient(white, var(--color-bg));
   --text-gradient: linear-gradient(var(--color-orange), var(--color-fg));
+  --transparent-text-bg: #fee1d8b0;
 }
 
 .dark-theme {
@@ -19,6 +20,7 @@
   --color-error: darkred;
   --color-gradient: linear-gradient(var(--color-bg), black) !important;
   --text-gradient: linear-gradient(var(--color-fg), var(--color-orange)) !important;
+  --transparent-text-bg: #2e1e1580;
 }
 
 .kon {
