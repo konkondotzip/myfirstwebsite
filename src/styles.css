@@ -9,6 +9,7 @@
   --color-error: indianred;
   --color-gradient: linear-gradient(white, var(--color-bg));
   --text-gradient: linear-gradient(var(--color-orange), var(--color-fg));
+  --transparent-text-bg: #fee1d8b0;
 }
 
 .dark-theme {
@@ -19,22 +20,41 @@
   --color-error: darkred;
   --color-gradient: linear-gradient(var(--color-bg), black) !important;
   --text-gradient: linear-gradient(var(--color-fg), var(--color-orange)) !important;
+  --transparent-text-bg: #2e1e1580;
 }
 
+.kon {
+  color: transparent;
+  background-image: var(--text-gradient);
+  background-clip: text;
+  font-weight: bold;
+}
+
+.link-button {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: large;
+  color: var(--color-bg);
+  background-color: var(--color-fg);
+  background-color: var(--color-fg);
+  border: 10px solid var(--color-orange);
+  padding: 10px;
+  padding: 10px;
+  margin: 10px auto;
+  width: 300px;
+}
+
+.link-button:hover {
+  background-image: var(--color-gradient);
+  color: var(--color-fg);
+}
 
 h1 {
-  background-color: var(--color-orange);
-  
+  color: transparent;
   background-image: var(--text-gradient);
-  
-  background-size: 100%;
-  background-repeat: repeat;
   background-clip: text;
-
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent; 
-  -moz-background-clip: text;
-  -moz-text-fill-color: transparent;
 }
 
 html {
@@ -63,6 +83,10 @@ select, button, input, textarea {
   color: var(--color-fg);
   background-color: var(--color-bg);
   border: solid var(--color-orange) 2px;
+}
+
+body {
+  margin: 0;
 }
 
 .submit-button {
@@ -101,27 +125,6 @@ footer {
   align-items: center;
 }
 
-#keyboard-main-page-link {
-  background-color: var(--color-link);
-  color: var(--color-bg);
-  position: fixed;
-  padding: 10px;
-  top: 0;
-  left: 84px;
-  z-index: 99;
-}
-
-#main-page-link {
-  background-color: transparent;
-  color: var(--color-dark);
-  position: fixed;
-  padding: 0px;
-  height: 64px;
-  top: 0;
-  left: 0;
-  z-index: 99;
-}
-
 #back-to-top {
   background-color: var(--color-link);
   color: var(--color-bg);
@@ -129,22 +132,6 @@ footer {
   padding: 10px;
   bottom: 34px;
   right: 0;
-}
-
-#theme-toggle {
-  background-color: transparent;
-  border: 0;
-  color: var(--color-fg);
-  position: fixed;
-  padding: 10px;
-  height: 64px;
-  aspect-ratio: 1;
-  margin: 0;
-  border-radius: 0;
-  top: 0;
-  right: 0;
-  width: auto;
-  cursor: pointer;
 }
 
 table {

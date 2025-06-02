@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
 import { ThemeToggleComponent } from "./theme-toggle/theme-toggle.component";
 import { MainLogoComponent } from "./main-logo/main-logo.component";
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, ThemeToggleComponent, MainLogoComponent],
+  imports: [RouterOutlet, MainLogoComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

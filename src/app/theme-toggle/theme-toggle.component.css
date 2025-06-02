@@ -1,0 +1,12 @@
+#theme-toggle {
+  background-color: transparent;
+  border: 0;
+  color: var(--color-fg);
+  margin: 10px;
+  height: 64px;
+  width: 64px;
+  border-radius: 0;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+}

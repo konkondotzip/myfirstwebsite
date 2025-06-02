@@ -1,6 +1,59 @@
-.main-logo {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  cursor: pointer;
+.title-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-image: linear-gradient(var(--color-bg) 90%, var(--color-orange));
+  background-color: transparent;
+  margin-bottom: 10px;
 }
+
+.home-link {
+  background-color: transparent;
+  color: var(--color-dark);
+  padding: 10px;
+  height: 64px;
+  left: 0;
+  transition: transform .5s ease-in-out;
+}
+
+.home-link:hover {
+  cursor: pointer;
+  transform: rotate(360deg);
+}
+
+/* Style the list */
+ul.breadcrumb {
+  color: var(--color-fg);
+  position: fixed;
+  padding: 10px;
+  top: 8px;
+  left: 64px;
+  z-index: 99;
+  list-style: none;
+}
+
+/* Display list items side by side */
+ul.breadcrumb li {
+  display: inline;
+  font-weight: bold;
+  padding-right: 1ch;
+}
+
+/* Add a slash symbol (/) before/behind each list item */
+ul.breadcrumb li:before {
+  font-weight: normal;
+  color: var(--color-fg);
+  content: ">\00a0";
+}
+
+/* Add a color to all links inside the list */
+ul.breadcrumb li a {
+  color: var(--color-fg);
+  text-decoration: none;
+  font-weight: normal;
+}
+
+/* Add a color on mouse-over */
+ul.breadcrumb li a:hover {
+  text-decoration: underline;
+} 
