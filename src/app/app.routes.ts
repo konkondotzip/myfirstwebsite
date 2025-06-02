@@ -8,9 +8,9 @@ import { SecretTetrisGameComponent } from './secret-tetris-game/secret-tetris-ga
 
 export const routes: Routes = [
   {path: '', component: LandingPageComponent},
-  {path: 'keyboard-main-page', component: MainPageComponent},
-  {path: 'keyboard-tester', component: KeyboardTesterComponent},
-  {path: 'keyboard-info', component: InfoComponent},
-  {path: 'super-secret-tetris-game', component: SecretTetrisGameComponent},
+  {path: 'keyboards', component: MainPageComponent},
+  {path: 'keyboards/tester', component: KeyboardTesterComponent},
+  {path: 'keyboards/info', component: InfoComponent},
+  {path: 'tetris', component: SecretTetrisGameComponent},
   {path: '**', component: PageNotFoundComponent}
 ];

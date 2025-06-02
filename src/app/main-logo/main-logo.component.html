@@ -1,1 +1,22 @@
-<img id="main-page-link" routerLink="/" class="main-logo" src="assets/img/konkondotzip.png" title="Konkon's Kontent">
+<div class="title-bar">
+  <div class="home-link-container">
+    <img class="home-link" routerLink="/" src="assets/img/konkondotzip.png" title="Konkon's Kontent">
+    <ul class="breadcrumb" [hidden]="devWidth < 1100">
+      @for (breadcrumb of breadcrumbs; track $index) {
+        @if (breadcrumb?.link == href) {
+        <li>{{breadcrumb?.name}}</li>
+        } @else {
+        <li>
+          <a [routerLink]="breadcrumb?.link">{{breadcrumb?.name}}</a>
+        </li>
+        }
+      }
+    </ul>
+  </div>
+  <div class="title-container">
+    <h1 class="title">{{title}}</h1>
+  </div>
+  <div>
+    <app-theme-toggle></app-theme-toggle>
+  </div>
+</div>
