@@ -11,11 +11,10 @@ import { Keyboard } from '../keyboard/keyboard';
 import { FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-keyboard-tester',
-  standalone: true,
-  imports: [KeyboardComponent, SizeComponent, LayoutComponent, StopwatchComponent, FormsModule, RouterLink],
-  templateUrl: './keyboard-tester.component.html',
-  styleUrl: './keyboard-tester.component.css'
+    selector: 'app-keyboard-tester',
+    imports: [KeyboardComponent, SizeComponent, LayoutComponent, StopwatchComponent, FormsModule, RouterLink],
+    templateUrl: './keyboard-tester.component.html',
+    styleUrl: './keyboard-tester.component.css'
 })
 export class KeyboardTesterComponent {
   keyboard: Keyboard = new Keyboard();

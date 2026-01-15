@@ -4,11 +4,10 @@ import { setThrowInvalidWriteToSignalError } from '@angular/core/primitives/sign
 import { FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-secret-tetris-game',
-  standalone: true,
-  imports: [CommonModule, FormsModule],
-  templateUrl: './secret-tetris-game.component.html',
-  styleUrl: './secret-tetris-game.component.css'
+    selector: 'app-secret-tetris-game',
+    imports: [CommonModule, FormsModule],
+    templateUrl: './secret-tetris-game.component.html',
+    styleUrl: './secret-tetris-game.component.css'
 })
 export class SecretTetrisGameComponent implements OnDestroy {
 
