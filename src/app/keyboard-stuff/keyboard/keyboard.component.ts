@@ -7,7 +7,8 @@ import { Keyboard } from './keyboard';
     selector: 'app-keyboard',
     imports: [CommonModule],
     templateUrl: './keyboard.component.html',
-    styleUrl: './keyboard.component.css'
+    styleUrl: './keyboard.component.css',
+    standalone: true
 })
 export class KeyboardComponent {
   @Input() keyboard: Keyboard = new Keyboard();

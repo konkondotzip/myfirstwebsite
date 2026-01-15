@@ -9,7 +9,8 @@ import { Layout } from '../keyboard/layout/layout';
     selector: 'app-info',
     imports: [RouterLink, KeyboardComponent],
     templateUrl: './info.component.html',
-    styleUrl: './info.component.css'
+    styleUrl: './info.component.css',
+    standalone: true
 })
 export class InfoComponent {
   exampleDE: Keyboard = new Keyboard("exampleDE");
