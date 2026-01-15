@@ -1,8 +1,10 @@
 <select
-(change)="updateLayout(selectedLayout)"
-[(ngModel)]="selectedLayout">
-  <option *ngFor="let layout of layouts"
-  [ngValue]="layout">
-    {{layout.name}}
-  </option>
+  (change)="updateLayout(selectedLayout)"
+  [(ngModel)]="selectedLayout">
+  @for (layout of layouts; track layout) {
+    <option
+      [ngValue]="layout">
+      {{layout.name}}
+    </option>
+  }
 </select>

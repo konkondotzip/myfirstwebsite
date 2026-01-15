@@ -1,11 +1,11 @@
-import { CommonModule } from '@angular/common';
+
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Layout } from './layout';
 
 @Component({
     selector: 'app-layout',
-    imports: [CommonModule, FormsModule],
+    imports: [FormsModule],
     templateUrl: './layout.component.html',
     styleUrl: './layout.component.css'
 })

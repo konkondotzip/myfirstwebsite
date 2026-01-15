@@ -4,31 +4,35 @@
     <p class="center" [innerHTML]="gameInfoText"></p>
     <input class="name-input inline-block-child" [(ngModel)]="playerName" [ngClass]="{disabled: running, invalid: errorName}" name="name" placeholder="{{namePlaceholderText}}" [disabled]="running">
     <button class="start-button inline-block-child" (click)="startStopGame()" [innerHTML]="buttonText"></button>
-  
+
     <h2 [innerHTML]="remainingText"></h2>
     <h2 [innerHTML]="timeText"></h2>
   </div>
   <div class="child inline-table-child">
     <h3>Bestzeiten</h3>
     <p class="center">Hier werden Bestzeiten angezeigt.</p>
-    <div *ngIf="highscores.length > 0">
-      <a class="download-btn" [href]="downloadHighscoreHref" download="keyboard-tester-highscores.json" [innerHTML]="downloadHighscoreText"></a>
-      <label for="file-upload" class="file-upload"><span [innerHTML]="uploadHighscoreText"></span></label>
-      <input id="file-upload" type="file" (change)="uploadHighscores($event)">
-      <table class="center highscores">
-        <tr>
-          <th>Name</th><th>Tastatur</th><th>Score</th><th>Datum</th>
-        </tr>
-        <ng-container *ngFor="let highscore of highscores">
+    @if (highscores.length > 0) {
+      <div>
+        <a class="download-btn" [href]="downloadHighscoreHref" download="keyboard-tester-highscores.json" [innerHTML]="downloadHighscoreText"></a>
+        <label for="file-upload" class="file-upload"><span [innerHTML]="uploadHighscoreText"></span></label>
+        <input id="file-upload" type="file" (change)="uploadHighscores($event)">
+        <table class="center highscores">
           <tr>
-            <td>{{highscore.name}}</td><td>{{highscore.keyboardString}}</td><td>{{scoreToString(highscore.score)}}</td><td>{{date(highscore.time)}}</td>
+            <th>Name</th><th>Tastatur</th><th>Score</th><th>Datum</th>
           </tr>
-        </ng-container>
-      </table>
-    </div>
-    <div *ngIf="highscores.length == 0">
-      <label for="file-upload" class="file-upload"><span [innerHTML]="uploadHighscoreText"></span></label>
-      <input id="file-upload" type="file" (change)="uploadHighscores($event)">
-    </div>
+          @for (highscore of highscores; track highscore) {
+            <tr>
+              <td>{{highscore.name}}</td><td>{{highscore.keyboardString}}</td><td>{{scoreToString(highscore.score)}}</td><td>{{date(highscore.time)}}</td>
+            </tr>
+          }
+        </table>
+      </div>
+    }
+    @if (highscores.length == 0) {
+      <div>
+        <label for="file-upload" class="file-upload"><span [innerHTML]="uploadHighscoreText"></span></label>
+        <input id="file-upload" type="file" (change)="uploadHighscores($event)">
+      </div>
+    }
   </div>
 </div>

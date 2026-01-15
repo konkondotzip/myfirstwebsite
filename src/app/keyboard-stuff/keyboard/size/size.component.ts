@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+
 import { Component, EventEmitter, output, Output } from '@angular/core';
 import { Size } from './size';
 import { FormsModule } from '@angular/forms';
@@ -7,7 +7,7 @@ import { Key } from '../key/key';
 
 @Component({
     selector: 'app-size',
-    imports: [CommonModule, FormsModule],
+    imports: [FormsModule],
     templateUrl: './size.component.html',
     styleUrl: './size.component.css'
 })
