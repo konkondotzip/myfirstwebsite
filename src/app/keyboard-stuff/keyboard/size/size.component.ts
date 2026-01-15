@@ -6,11 +6,10 @@ import { SizeService } from './size.service';
 import { Key } from '../key/key';
 
 @Component({
-  selector: 'app-size',
-  standalone: true,
-  imports: [CommonModule, FormsModule],
-  templateUrl: './size.component.html',
-  styleUrl: './size.component.css'
+    selector: 'app-size',
+    imports: [CommonModule, FormsModule],
+    templateUrl: './size.component.html',
+    styleUrl: './size.component.css'
 })
 export class SizeComponent {
   @Output() size = new EventEmitter<Size>();

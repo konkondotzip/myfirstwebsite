@@ -4,11 +4,10 @@ import { ThemeToggleComponent } from "../theme-toggle/theme-toggle.component";
 import { Location, PlatformLocation } from '@angular/common';
 
 @Component({
-  selector: 'app-main-logo',
-  standalone: true,
-  imports: [RouterLink, ThemeToggleComponent],
-  templateUrl: './main-logo.component.html',
-  styleUrl: './main-logo.component.css'
+    selector: 'app-main-logo',
+    imports: [RouterLink, ThemeToggleComponent],
+    templateUrl: './main-logo.component.html',
+    styleUrl: './main-logo.component.css'
 })
 export class MainLogoComponent {
   href: string = "";
