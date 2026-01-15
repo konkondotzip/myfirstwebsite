@@ -71,7 +71,7 @@ export class MainLogoComponent {
     });
   }
 
-  @HostListener('window:resize', ['$event'])
+  @HostListener('window:resize')
   onResize() {
     this.devWidth = window.innerWidth;
   }
