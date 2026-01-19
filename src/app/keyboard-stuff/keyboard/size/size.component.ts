@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+
 import { Component, EventEmitter, output, Output } from '@angular/core';
 import { Size } from './size';
 import { FormsModule } from '@angular/forms';
@@ -6,11 +6,11 @@ import { SizeService } from './size.service';
 import { Key } from '../key/key';
 
 @Component({
-  selector: 'app-size',
-  standalone: true,
-  imports: [CommonModule, FormsModule],
-  templateUrl: './size.component.html',
-  styleUrl: './size.component.css'
+    selector: 'app-size',
+    imports: [FormsModule],
+    templateUrl: './size.component.html',
+    styleUrl: './size.component.css',
+    standalone: true
 })
 export class SizeComponent {
   @Output() size = new EventEmitter<Size>();

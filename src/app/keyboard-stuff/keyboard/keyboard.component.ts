@@ -4,11 +4,11 @@ import { Size } from './size/size';
 import { Keyboard } from './keyboard';
 
 @Component({
-  selector: 'app-keyboard',
-  standalone: true,
-  imports: [CommonModule],
-  templateUrl: './keyboard.component.html',
-  styleUrl: './keyboard.component.css'
+    selector: 'app-keyboard',
+    imports: [CommonModule],
+    templateUrl: './keyboard.component.html',
+    styleUrl: './keyboard.component.css',
+    standalone: true
 })
 export class KeyboardComponent {
   @Input() keyboard: Keyboard = new Keyboard();

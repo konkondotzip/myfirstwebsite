@@ -1,7 +1,11 @@
 <div class="grid-container">
-  <div *ngFor="let row of data" class="grid-row">
-    <div *ngFor="let item of row" class="grid-item">
-      {{item}}
+  @for (row of data; track row) {
+    <div class="grid-row">
+      @for (item of row; track item) {
+        <div class="grid-item">
+          {{item}}
+        </div>
+      }
     </div>
-  </div>
+  }
 </div>

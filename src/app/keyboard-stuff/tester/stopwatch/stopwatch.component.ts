@@ -14,11 +14,11 @@ import { FormControl, FormsModule, Validators } from '@angular/forms';
   providedIn: 'root'
 })
 @Component({
-  selector: 'app-stopwatch',
-  standalone: true,
-  imports: [FormsModule, CommonModule],
-  templateUrl: './stopwatch.component.html',
-  styleUrl: './stopwatch.component.css'
+    selector: 'app-stopwatch',
+    imports: [FormsModule, CommonModule],
+    templateUrl: './stopwatch.component.html',
+    styleUrl: './stopwatch.component.css',
+    standalone: true
 })
 export class StopwatchComponent implements OnDestroy {
   @Output() reset = new EventEmitter<true>;

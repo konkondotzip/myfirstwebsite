@@ -1,14 +1,14 @@
-import { CommonModule } from '@angular/common';
+
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Layout } from './layout';
 
 @Component({
-  selector: 'app-layout',
-  standalone: true,
-  imports: [CommonModule, FormsModule],
-  templateUrl: './layout.component.html',
-  styleUrl: './layout.component.css'
+    selector: 'app-layout',
+    imports: [FormsModule],
+    templateUrl: './layout.component.html',
+    styleUrl: './layout.component.css',
+    standalone: true
 })
 /**
  * Für den Selector zur Auswahl eines Layouts. Leitet das ausgewählte Layout an einen Parent weiter.
