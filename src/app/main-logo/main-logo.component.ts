@@ -7,7 +7,8 @@ import { Location, PlatformLocation } from '@angular/common';
     selector: 'app-main-logo',
     imports: [RouterLink, ThemeToggleComponent],
     templateUrl: './main-logo.component.html',
-    styleUrl: './main-logo.component.css'
+    styleUrl: './main-logo.component.css',
+    standalone: true
 })
 export class MainLogoComponent {
   href: string = "";

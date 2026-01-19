@@ -7,7 +7,8 @@ import { FormsModule } from '@angular/forms';
     selector: 'app-secret-tetris-game',
     imports: [CommonModule, FormsModule],
     templateUrl: './secret-tetris-game.component.html',
-    styleUrl: './secret-tetris-game.component.css'
+    styleUrl: './secret-tetris-game.component.css',
+    standalone: true
 })
 export class SecretTetrisGameComponent implements OnDestroy {
 
