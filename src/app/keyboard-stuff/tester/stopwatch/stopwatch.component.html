@@ -1,7 +1,7 @@
 <div class="parent">
   <div class="child inline-table-child">
-    <h3>Spiel</h3>
-    <p class="center" [innerHTML]="gameInfoText"></p>
+    <h3 class="center box-shadow">Spiel</h3>
+    <p class="center box-shadow" [innerHTML]="gameInfoText"></p>
     <input class="name-input inline-block-child" [(ngModel)]="playerName" [ngClass]="{disabled: running, invalid: errorName}" name="name" placeholder="{{namePlaceholderText}}" [disabled]="running">
     <button class="start-button inline-block-child" (click)="startStopGame()" [innerHTML]="buttonText"></button>
   
@@ -9,8 +9,8 @@
     <h2 [innerHTML]="timeText"></h2>
   </div>
   <div class="child inline-table-child">
-    <h3>Bestzeiten</h3>
-    <p class="center">Hier werden Bestzeiten angezeigt.</p>
+    <h3 class="center box-shadow">Bestzeiten</h3>
+    <p class="center box-shadow">Hier werden Bestzeiten angezeigt.</p>
     <div *ngIf="highscores.length > 0">
       <a class="download-btn" [href]="downloadHighscoreHref" download="keyboard-tester-highscores.json" [innerHTML]="downloadHighscoreText"></a>
       <label for="file-upload" class="file-upload"><span [innerHTML]="uploadHighscoreText"></span></label>

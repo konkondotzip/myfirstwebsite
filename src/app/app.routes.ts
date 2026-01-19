@@ -5,6 +5,7 @@ import { InfoComponent } from './keyboard-stuff/info/info.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { SecretTetrisGameComponent } from './secret-tetris-game/secret-tetris-game.component';
+import { CommissionsComponent } from './commissions/commissions.component';
 
 export const routes: Routes = [
   {path: '', component: LandingPageComponent},
@@ -12,5 +13,6 @@ export const routes: Routes = [
   {path: 'keyboards/tester', component: KeyboardTesterComponent},
   {path: 'keyboards/info', component: InfoComponent},
   {path: 'tetris', component: SecretTetrisGameComponent},
+  {path: 'commissions', component: CommissionsComponent},
   {path: '**', component: PageNotFoundComponent}
 ];

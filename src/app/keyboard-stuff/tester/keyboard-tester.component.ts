@@ -13,7 +13,7 @@ import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-keyboard-tester',
   standalone: true,
-  imports: [KeyboardComponent, SizeComponent, LayoutComponent, StopwatchComponent, FormsModule, RouterLink],
+  imports: [KeyboardComponent, SizeComponent, LayoutComponent, StopwatchComponent, FormsModule],
   templateUrl: './keyboard-tester.component.html',
   styleUrl: './keyboard-tester.component.css'
 })

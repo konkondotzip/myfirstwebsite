@@ -39,6 +39,10 @@ export class MainLogoComponent {
     [
       "tetris",
       new Breadcrumb("Tetris", "/tetris", new Map<string, Breadcrumb>([]))
+    ],
+    [
+      "commissions",
+      new Breadcrumb("Konkon's Commissions", "/commissions", new Map<string, Breadcrumb>([]))
     ]
   ]);
 
@@ -72,7 +76,7 @@ export class MainLogoComponent {
     });
   }
 
-  @HostListener('window:resize', ['$event'])
+  @HostListener('window:resize')
   onResize() {
     this.devWidth = window.innerWidth;
   }

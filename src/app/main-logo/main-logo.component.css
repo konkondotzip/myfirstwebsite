@@ -1,10 +1,17 @@
 .title-bar {
-  display: flex;
+  padding-bottom: 100px;
+}
+
+.title-bar-content {
   justify-content: space-between;
-  align-items: center;
+  display: flex;
   background-image: linear-gradient(var(--color-bg) 90%, var(--color-orange));
   background-color: transparent;
-  margin-bottom: 10px;
+  position: fixed;
+  width: 100%;
+  padding-top: 0;
+  top: 0;
+  z-index: 999;
 }
 
 .home-link {
@@ -26,9 +33,8 @@ ul.breadcrumb {
   color: var(--color-fg);
   position: fixed;
   padding: 10px;
-  top: 8px;
+  top: 20px;
   left: 64px;
-  z-index: 99;
   list-style: none;
 }
 
