@@ -6,11 +6,11 @@ import { Size } from '../keyboard/size/size';
 import { Layout } from '../keyboard/layout/layout';
 
 @Component({
-  selector: 'app-info',
-  standalone: true,
-  imports: [RouterLink, KeyboardComponent],
-  templateUrl: './info.component.html',
-  styleUrl: './info.component.css'
+    selector: 'app-info',
+    imports: [RouterLink, KeyboardComponent],
+    templateUrl: './info.component.html',
+    styleUrl: './info.component.css',
+    standalone: true
 })
 export class InfoComponent {
   exampleDE: Keyboard = new Keyboard("exampleDE");
