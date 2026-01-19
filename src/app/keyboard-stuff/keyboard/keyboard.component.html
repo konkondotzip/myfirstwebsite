@@ -1,5 +1,5 @@
 <div id="{{keyboard.id}}" class="keyboard size_{{size.id}}">
-  @for (key of keyboard?.keys; track key) {
+  @for (key of keyboard.keys; track key) {
     <div class="key"
       id="{{key.code}}" class="{{key.size}}"
       [ngClass]="{hidden: (key.visible == false), keyup: key.keyup, keydown: key.keydown}"

@@ -14,7 +14,8 @@ import { FormsModule } from '@angular/forms';
     selector: 'app-keyboard-tester',
     imports: [KeyboardComponent, SizeComponent, LayoutComponent, StopwatchComponent, FormsModule, RouterLink],
     templateUrl: './keyboard-tester.component.html',
-    styleUrl: './keyboard-tester.component.css'
+    styleUrl: './keyboard-tester.component.css',
+    standalone: true
 })
 export class KeyboardTesterComponent {
   keyboard: Keyboard = new Keyboard();

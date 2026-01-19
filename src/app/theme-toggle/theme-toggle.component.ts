@@ -4,7 +4,8 @@ import { Component } from '@angular/core';
     selector: 'app-theme-toggle',
     imports: [],
     templateUrl: './theme-toggle.component.html',
-    styleUrl: './theme-toggle.component.css'
+    styleUrl: './theme-toggle.component.css',
+    standalone: true
 })
 export class ThemeToggleComponent {
   private savedMode: string = localStorage.getItem('theme') ?? window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";

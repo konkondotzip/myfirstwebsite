@@ -5,7 +5,8 @@ import { RouterLink } from '@angular/router';
     selector: 'app-main-page',
     imports: [RouterLink],
     templateUrl: './main-page.component.html',
-    styleUrl: './main-page.component.css'
+    styleUrl: './main-page.component.css',
+    standalone: true
 })
 export class MainPageComponent {
 

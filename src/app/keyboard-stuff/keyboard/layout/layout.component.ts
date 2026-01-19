@@ -7,7 +7,8 @@ import { Layout } from './layout';
     selector: 'app-layout',
     imports: [FormsModule],
     templateUrl: './layout.component.html',
-    styleUrl: './layout.component.css'
+    styleUrl: './layout.component.css',
+    standalone: true
 })
 /**
  * Für den Selector zur Auswahl eines Layouts. Leitet das ausgewählte Layout an einen Parent weiter.

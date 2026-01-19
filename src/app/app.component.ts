@@ -8,7 +8,8 @@ import {Location} from '@angular/common';
     selector: 'app-root',
     imports: [RouterOutlet, MainLogoComponent],
     templateUrl: './app.component.html',
-    styleUrl: './app.component.css'
+    styleUrl: './app.component.css',
+    standalone: true
 })
 export class AppComponent {
   title="Konkon's Kontent"

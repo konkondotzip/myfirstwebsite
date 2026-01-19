@@ -9,7 +9,8 @@ import { Key } from '../key/key';
     selector: 'app-size',
     imports: [FormsModule],
     templateUrl: './size.component.html',
-    styleUrl: './size.component.css'
+    styleUrl: './size.component.css',
+    standalone: true
 })
 export class SizeComponent {
   @Output() size = new EventEmitter<Size>();
