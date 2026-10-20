@@ -1,4 +1,4 @@
-import { Component, HostListener, inject, ViewChild } from '@angular/core';
+import { Component, HostListener, inject, ViewChild, ChangeDetectionStrategy } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { KeyboardComponent } from "../keyboard/keyboard.component";
 import { SizeComponent } from "../keyboard/size/size.component";
@@ -15,6 +15,7 @@ import { FormsModule } from '@angular/forms';
   standalone: true,
   imports: [KeyboardComponent, SizeComponent, LayoutComponent, StopwatchComponent, FormsModule],
   templateUrl: './keyboard-tester.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './keyboard-tester.component.css'
 })
 export class KeyboardTesterComponent {

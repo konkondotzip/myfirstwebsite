@@ -1,5 +1,5 @@
 
-import { Component, EventEmitter, output, Output } from '@angular/core';
+import { Component, EventEmitter, output, Output, ChangeDetectionStrategy } from '@angular/core';
 import { Size } from './size';
 import { FormsModule } from '@angular/forms';
 import { SizeService } from './size.service';
@@ -10,6 +10,7 @@ import { Key } from '../key/key';
     imports: [FormsModule],
     templateUrl: './size.component.html',
     styleUrl: './size.component.css',
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: true
 })
 export class SizeComponent {

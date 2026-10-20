@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Size } from './size/size';
 import { Keyboard } from './keyboard';
@@ -8,6 +8,7 @@ import { Keyboard } from './keyboard';
     imports: [CommonModule],
     templateUrl: './keyboard.component.html',
     styleUrl: './keyboard.component.css',
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: true
 })
 export class KeyboardComponent {

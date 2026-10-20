@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { KeyboardComponent } from "../keyboard/keyboard.component";
 import { Keyboard } from '../keyboard/keyboard';
 import { Size } from '../keyboard/size/size';
@@ -9,6 +9,7 @@ import { Layout } from '../keyboard/layout/layout';
     imports: [KeyboardComponent],
     templateUrl: './info.component.html',
     styleUrl: './info.component.css',
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: true
 })
 export class InfoComponent {

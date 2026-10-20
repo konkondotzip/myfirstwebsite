@@ -1,5 +1,5 @@
 
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Output, ChangeDetectionStrategy } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Layout } from './layout';
 
@@ -8,6 +8,7 @@ import { Layout } from './layout';
     imports: [FormsModule],
     templateUrl: './layout.component.html',
     styleUrl: './layout.component.css',
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: true
 })
 /**

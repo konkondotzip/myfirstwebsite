@@ -8,7 +8,7 @@
             <li>{{breadcrumb?.name}}</li>
           } @else {
             <li>
-              <a [routerLink]="breadcrumb?.link">{{breadcrumb?.name}}</a>
+              <a [routerLink]="$safeNavigationMigration(breadcrumb?.link)">{{breadcrumb?.name}}</a>
             </li>
           }
         }

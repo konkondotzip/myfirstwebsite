@@ -1,4 +1,4 @@
-import { Component, HostListener, PlatformRef } from '@angular/core';
+import { Component, HostListener, PlatformRef, ChangeDetectionStrategy } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router, RouterLink } from '@angular/router';
 import { ThemeToggleComponent } from "../theme-toggle/theme-toggle.component";
 import { Location, PlatformLocation } from '@angular/common';
@@ -8,6 +8,7 @@ import { Location, PlatformLocation } from '@angular/common';
     imports: [RouterLink, ThemeToggleComponent],
     templateUrl: './main-logo.component.html',
     styleUrl: './main-logo.component.css',
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: true
 })
 export class MainLogoComponent {
