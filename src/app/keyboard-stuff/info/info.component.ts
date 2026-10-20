@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
 import { KeyboardComponent } from "../keyboard/keyboard.component";
 import { Keyboard } from '../keyboard/keyboard';
 import { Size } from '../keyboard/size/size';
@@ -7,7 +6,7 @@ import { Layout } from '../keyboard/layout/layout';
 
 @Component({
     selector: 'app-info',
-    imports: [RouterLink, KeyboardComponent],
+    imports: [KeyboardComponent],
     templateUrl: './info.component.html',
     styleUrl: './info.component.css',
     standalone: true
