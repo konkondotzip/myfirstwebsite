@@ -1,3 +1,5 @@
-<app-main-logo></app-main-logo>
-<img class="background-image" src="assets/img/Konkon6.webp">
+@if (showLayout()) {
+  <app-main-logo [title]="title" />
+  <img class="background-image" src="assets/img/Konkon6.webp">
+}
 <router-outlet/>

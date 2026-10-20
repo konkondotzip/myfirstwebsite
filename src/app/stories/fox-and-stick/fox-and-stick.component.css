@@ -1,0 +1,11 @@
+.back {
+  font-family: libserif serif;
+  font-size: small;
+  color: #ddd;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  padding: 10px;
+  background: #222;
+  box-shadow: 0 0 10px 10px #222;
+}

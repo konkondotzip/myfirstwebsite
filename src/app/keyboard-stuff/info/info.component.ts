@@ -9,8 +9,6 @@ import { Layout } from '../keyboard/layout/layout';
     imports: [KeyboardComponent],
     templateUrl: './info.component.html',
     styleUrl: './info.component.css',
-    changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: true
 })
 export class InfoComponent {
   exampleDE: Keyboard = new Keyboard("exampleDE");

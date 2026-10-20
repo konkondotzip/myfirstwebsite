@@ -1,0 +1,8 @@
+<app-main-logo [title]="title" />
+
+<h2>The Fox and His Stick</h2>
+@for (foxChapter of foxChapters; track $index) {
+  <a [routerLink]="['./fox-and-stick']" [queryParams]="{ chapter: foxChapter }" class="link-button">
+    Chapter {{ foxChapter }}
+  </a>
+}

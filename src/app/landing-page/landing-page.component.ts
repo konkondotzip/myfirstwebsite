@@ -6,8 +6,6 @@ import { RouterLink } from '@angular/router';
     imports: [RouterLink],
     templateUrl: './landing-page.component.html',
     styleUrl: './landing-page.component.css',
-    changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: true
 })
 export class LandingPageComponent {
 
