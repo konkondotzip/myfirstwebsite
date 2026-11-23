@@ -1,0 +1,285 @@
+@font-face {
+  font-family: lib-serif;
+  src: url(assets/font/LiberationSerif-Regular.ttf);
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: lib-serif;
+  src: url(assets/font/LiberationSerif-Italic.ttf);
+  font-style: italic;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: lib-serif;
+  src: url(assets/font/LiberationSerif-Bold.ttf);
+  font-style: normal;
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: lib-serif;
+  src: url(assets/font/LiberationSerif-BoldItalic.ttf);
+  font-style: italic;
+  font-weight: bold;
+}
+
+:root {
+  --silver: #ddd;
+  --gold: #da2;
+  --bg: #222;
+  --box-bg: #111;
+  font-family: lib-serif serif;
+  line-height: 1.6;
+  font-size: 18px;
+  color: var(--silver);
+  background-color: var(--bg);
+}
+
+body {
+  max-width: 655px; /* Delphox's dex number :) */
+  margin: auto;
+}
+
+p {
+  text-align: justify;
+}
+
+div {
+  margin: 0 2rem;
+}
+
+a {
+  color: var(--silver);
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+  border-top: 1px solid var(--gold);
+}
+
+footer p {
+  color: var(--silver);
+  text-align: center;
+}
+
+footer a {
+  color: var(--silver);
+}
+
+footer img {
+  max-width: 1rem;
+  max-height: 1rem;
+  margin-left: 0.2rem;
+}
+
+spoiler {
+  color: #000;
+  background-color: #000;
+}
+
+.header {
+  text-align: center;
+  padding-bottom: 1rem;
+  margin: 2rem 4rem;
+  line-height: 1.2;
+  border-bottom: 1px solid var(--gold);
+}
+
+.narrator {
+  font-style: italic;
+  text-align: center;
+}
+
+.dialog {
+  position: relative;
+  background-color: var(--box-bg);
+  padding: 0.5rem 2rem;
+  margin: 2.5rem 1rem;
+  border-image: linear-gradient(to bottom, var(--silver) 5%, var(--bg) 95%) 1;
+  border-width: 5px;
+  border-style: solid;
+}
+
+.dialog::before, .button::before {
+  content: "";
+  background: none;
+  display: block;
+  pointer-events: none;
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  border-image: linear-gradient(to top, var(--gold) 5%, transparent 95%) 1;
+  border-width: 5px;
+  border-style: solid;
+}
+
+.dialog.left {
+  border-image: linear-gradient(to left, var(--silver) 5%, var(--bg) 95%) 1;
+}
+
+.dialog.left::before {
+  border-image: linear-gradient(to right, var(--gold) 5%, transparent 95%) 1;
+}
+
+.dialog.right {
+  border-image: linear-gradient(to right, var(--silver) 5%, var(--bg) 95%) 1;
+}
+
+.dialog.right::before {
+  border-image: linear-gradient(to left, var(--gold) 5%, transparent 95%) 1;
+}
+
+.dialog img {
+  height: 100px;
+  position: absolute;
+  top: -2rem;
+  border-width: 5px;
+  border-style: solid;
+}
+
+.dialog div:first-child {
+  position: absolute;
+  top: -1rem;
+  left: 0;
+  text-align: center;
+  font-weight: bold;
+  font-style: italic;
+  max-width: 200px;
+  padding: 0 1rem;
+  background-color: var(--box-bg);
+  border-image: linear-gradient(to bottom, var(--silver) 5%, var(--box-bg) 90%) 1;
+  border-width: 5px;
+  border-style: solid;
+}
+
+.left img {
+  border-image: linear-gradient(-138deg, var(--silver) 60%, var(--box-bg) 70%) 1;
+  right: -20px;
+}
+
+.right img {
+  border-image: linear-gradient(138deg, var(--silver) 60%, var(--box-bg) 70%) 1;
+  left: -20px;
+}
+
+.right p::before,
+.left p::before {
+  content: "";
+  height: 50px;
+  width: 55px;
+  margin-bottom: 0.3rem;
+}
+
+.right p::before {
+  margin-right: 1rem;
+  float: left;
+}
+
+.left p::before {
+  margin-left: 1rem;
+  float: right;
+}
+
+.left div:first-child {
+  right: 4rem;
+  left: auto;
+}
+
+.right div:first-child {
+  right: auto;
+  left: 4rem;
+}
+
+.divider, .title {
+  text-align: center;
+  font-size: 50px;
+  background: linear-gradient(to right, var(--silver) 5%, var(--gold) 95%);
+  background-clip: text;
+  color: transparent;
+  margin: 2rem auto;
+}
+
+.divider {
+  width: max-content;
+}
+
+.divider.small {
+  font-size: 30px;
+  color: var(--silver);
+}
+
+.divider::before {
+  content: "🙤🙧";
+}
+
+.chapter-select {
+  display: flex;
+  justify-content: center;
+  margin: 5rem 0 0 0;
+  color: var(--gold);
+}
+
+.button {
+  position: relative;
+  display: flex;
+  width: 180px;
+  height: 2rem;
+  align-items: center;
+  text-align: center;
+  line-height: 1;
+  background-color: var(--box-bg);
+  border-image: linear-gradient(to bottom, var(--silver) 5%, var(--bg) 95%) 1;
+  border-width: 5px;
+  border-style: solid;
+  padding: 0.5rem 1rem;
+  margin: auto;
+  color: var(--silver);
+  justify-content: center;
+  text-decoration: none;
+}
+
+.button.next::after {
+  content: "→";
+  align-content: center;
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 5px;
+  right: 5px;
+}
+
+.button.previous::before {
+  content: "←";
+  position: absolute;
+  align-content: center;
+  text-align: left;
+  top: -5px;
+  bottom: 0px;
+}
+
+.button:hover {
+  color: var(--box-bg);
+  background-image: linear-gradient(to top, var(--gold), var(--box-bg));
+}
+
+.soon {
+  border: none;
+  background-color: transparent;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+.trans {
+  background: linear-gradient(to right, #7ff, #f7f, #fff, #f7f, #7ff);
+  background-clip: text;
+  color: transparent;
+}
