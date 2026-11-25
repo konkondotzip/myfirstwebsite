@@ -1,27 +1,27 @@
 @font-face {
   font-family: lib-serif;
-  src: url(assets/font/LiberationSerif-Regular.woff2);
+  src: url(assets/font/LiberationSerif-Regular.woff2) format('woff2');
   font-style: normal;
   font-weight: normal;
 }
 
 @font-face {
   font-family: lib-serif;
-  src: url(assets/font/LiberationSerif-Italic.woff2);
+  src: url(assets/font/LiberationSerif-Italic.woff2) format('woff2');
   font-style: italic;
   font-weight: normal;
 }
 
 @font-face {
   font-family: lib-serif;
-  src: url(assets/font/LiberationSerif-Bold.woff2);
+  src: url(assets/font/LiberationSerif-Bold.woff2) format('woff2');
   font-style: normal;
   font-weight: bold;
 }
 
 @font-face {
   font-family: lib-serif;
-  src: url(assets/font/LiberationSerif-BoldItalic.woff2);
+  src: url(assets/font/LiberationSerif-BoldItalic.woff2) format('woff2');
   font-style: italic;
   font-weight: bold;
 }
