@@ -1,35 +1,27 @@
 @font-face {
   font-family: lib-serif;
-  src: url(assets/font/LiberationSerif-Regular.woff) format('woff'),
-       url(assets/font/LiberationSerif-Regular.woff2) format('woff2'),
-       url(assets/font/LiberationSerif-Regular.ttf) format('truetype');
+  src: url(assets/font/LiberationSerif-Regular.woff2) format('woff2');
   font-style: normal;
   font-weight: normal;
 }
 
 @font-face {
   font-family: lib-serif;
-  src: url(assets/font/LiberationSerif-Italic.woff) format('woff'),
-       url(assets/font/LiberationSerif-Italic.woff2) format('woff2'),
-       url(assets/font/LiberationSerif-Italic.ttf) format('truetype');
+  src: url(assets/font/LiberationSerif-Italic.woff2) format('woff2');
   font-style: italic;
   font-weight: normal;
 }
 
 @font-face {
   font-family: lib-serif;
-  src: url(assets/font/LiberationSerif-Bold.woff) format('woff'),
-       url(assets/font/LiberationSerif-Bold.woff2) format('woff2'),
-       url(assets/font/LiberationSerif-Bold.ttf) format('truetype');
+  src: url(assets/font/LiberationSerif-Bold.woff2) format('woff2');
   font-style: normal;
   font-weight: bold;
 }
 
 @font-face {
   font-family: lib-serif;
-  src: url(assets/font/LiberationSerif-BoldItalic.woff) format('woff'),
-       url(assets/font/LiberationSerif-BoldItalic.woff2) format('woff2'),
-       url(assets/font/LiberationSerif-BoldItalic.ttf) format('truetype');
+  src: url(assets/font/LiberationSerif-BoldItalic.woff2) format('woff2');
   font-style: italic;
   font-weight: bold;
 }
@@ -39,7 +31,7 @@
   --gold: #da2;
   --bg: #222;
   --box-bg: #111;
-  font-family: lib-serif serif;
+  font-family: lib-serif, serif;
   line-height: 1.6;
   font-size: 18px;
   color: var(--silver);
@@ -107,7 +99,7 @@ footer img {
 .dialog {
   position: relative;
   background-color: var(--box-bg);
-  padding: 0.5rem 2rem;
+  padding: 0 2rem;
   margin: 2.5rem 1rem;
   border-image: linear-gradient(to bottom, var(--silver) 5%, var(--bg) 95%) 1;
   border-width: 5px;
@@ -146,9 +138,9 @@ footer img {
 }
 
 .dialog img {
-  height: 100px;
+  height: 5rem;
   position: absolute;
-  top: -2rem;
+  top: -1rem;
   border-width: 5px;
   border-style: solid;
 }
@@ -169,19 +161,19 @@ footer img {
 }
 
 .left img {
-  border-image: linear-gradient(-138deg, var(--silver) 60%, var(--box-bg) 70%) 1;
-  right: -20px;
+  border-image: linear-gradient(-138deg, var(--silver) 60%, transparent 70%) 1;
+  right: -1rem;
 }
 
 .right img {
-  border-image: linear-gradient(138deg, var(--silver) 60%, var(--box-bg) 70%) 1;
-  left: -20px;
+  border-image: linear-gradient(138deg, var(--silver) 60%, transparent 70%) 1;
+  left: -1rem;
 }
 
 .right p::before,
 .left p::before {
   content: "";
-  height: 50px;
+  height: 60px;
   width: 55px;
   margin-bottom: 0.3rem;
 }
