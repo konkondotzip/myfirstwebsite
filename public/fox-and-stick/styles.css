@@ -202,22 +202,27 @@ footer img {
   text-align: center;
   font-size: 50px;
   background: linear-gradient(to right, var(--silver) 5%, var(--gold) 95%);
-  background-clip: text;
   color: transparent;
   margin: 2rem auto;
 }
 
-.divider {
-  width: max-content;
+.title {
+  background-clip: text;
 }
 
 .divider.small {
-  font-size: 30px;
-  color: var(--silver);
+  width: 6rem;
+  height: 2.1rem;
+  background-size: 6rem;
+  background-image: url('https://file.garden/ZSKf_e3coQFc9mok/fox-and-stick/misc/divider-small.svg');
 }
 
-.divider::before {
-  content: "🙤🙧";
+.divider {
+  width: 10rem;
+  height: 3.5rem;
+  background-image: url('https://file.garden/ZSKf_e3coQFc9mok/fox-and-stick/misc/divider.svg');
+  background-size: 10rem;
+  background-repeat: no-repeat;
 }
 
 .chapter-select {
